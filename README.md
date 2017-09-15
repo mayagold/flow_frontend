@@ -2,7 +2,8 @@
 
 ##### GA WDI Gizmo Final Project
 
-# Flow Jo: Women in Action Sports
+# Flow [title]
+## Women in Action Sports
 
 ---
 
