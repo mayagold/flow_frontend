@@ -1,0 +1,158 @@
+// VARIABLES
+
+$fh-lime : #C8E462;
+$fh-navy : #072147;
+$fh-mint : #B7E49D;
+$fh-olive: #545C33;
+$fh-pink : #EA0034;
+$fh-grey : #F3FBEA;
+$fh-white: whitesmoke;
+$fh-coal : rgba(0,0,0,.8);
+
+$featured-image-width: 100%;
+
+$a-decor : none;
+
+
+// BODY STYLING
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: $fh-white;
+  color: $fh-olive;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+
+  div {
+    width: 100%;
+  }
+
+
+  header {
+    position: relative;
+    width: 100%;
+    min-height: 700px;
+    margin-top: 0;
+    .header-text {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 0;
+      z-index: 40;
+      h1 {
+        color: $fh-grey;
+        font-size: 80px;
+        padding: 0;
+        margin: 0
+      }
+    }
+    img {
+      width: $featured-image-width;
+      position: absolute;
+      height: 100%;
+    }
+    #climb {
+      z-index: 9;
+      top: 0;
+      right: 0;
+    }
+    #fog {
+      z-index: 8;
+      bottom: 0;
+      right: 0;
+    }
+    #ocean {
+      z-index: 7;
+      bottom: 0;
+      left: 0;
+    }
+    .nav-main {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+      background: $fh-coal;
+      color: $fh-lime;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      ul {
+        margin: 0 auto;
+      }
+      * {
+        display: inline-flex;
+        flex-wrap: nowrap;
+        padding: 10px 10px 10px 10px;
+        font-size: 50px;
+        text-decoration: $a-decor;
+        color: $fh-lime;
+      }
+    }
+  }
+
+  .quotes {
+    background: $fh-white;
+    color: $fh-coal;
+
+    ul {
+      width: 90%;
+      margin: 0 auto;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+              flex-wrap: wrap;
+
+      li {
+        display: block;
+        text-align:justify;
+        width: 60%;
+        float: left;
+        overflow: hidden;
+        padding: 20px;
+      }
+
+    }
+  }
+
+  .photos {
+
+    background: $fh-olive;
+
+    .posted-photo {
+      max-width: 60%;
+      border: 2px solid $fh-coal;
+      padding: 4px;
+      background: $fh-white;
+      border-radius: 30px;
+      color: black;
+    }
+
+  }
+
+  a:hover {
+    color: $fh-pink
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    background: $fh-coal;
+    width: 100%;
+    height: 200px;
+    color: $fh-grey;
+  }
+
+}

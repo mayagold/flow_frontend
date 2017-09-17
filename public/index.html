@@ -1,35 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="flow-app">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css">
+    <!-- Ensure proper rendering and touch zooming -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.png" type="image/x-icon"/>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Exo+2|Roboto" rel="stylesheet">
-    <title></title>
+    <title>TITLE</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- Angular Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <!-- JS File -->
+    <script type="text/javascript" src="js/app.js">
+    </script>
   </head>
-  <body>
+  <body ng-controller="appController as app">
 
     <header>
       <div class="background-image">
-        <img src="../assets/Spiral.png"/>
+        <img id="climb" src="assets/rope.jpg"/>
       </div>
       <div class="header-text">
-        <h1>flow heist </h1>
-        <!-- <h3>breaking and entering</h3> -->
+        <h1>WEB SITE TITLE</h1>
       </div>
-      <nav>
+      <nav class="nav-main">
         <ul>
-          <li>SNOW</li>
-          <li>SURF</li>
-          <li>CLIMB</li>
-          <li>TRAVEL</li>
+          <li><a href="#">SNOW</a></li>
+          <li><a href="#">SURF</a></li>
+          <li><a href="#">CLIMB</a></li>
+          <li><a href="#">TRAVEL</a></li>
         </ul>
       </nav>
     </header>
-    <div class="color-scheme-a"></div>
-    <div class="color-scheme-b">BREAKING AND ADVENTURING</div>
-    <div class="color-scheme-c"></div>
-    <div class="color-scheme-d"></div>
-    <div class="color-scheme-e"></div>
-    <div class="color-scheme-f"></div>
+
+
+    <div class="main">
+      body content
+
+      <div class="quotes">
+        <ul ng-repeat="quote in app.quotes">
+          <li><p>{{quote.content}}</p> - {{quote.author}}</li>
+        </ul>
+      </div>
+
+      <div class="photos">
+        <ul ng-repeat="photo in app.photos">
+          <li>
+            <img class="posted-photo" src="{{photo.url}}" alt="">
+            {{photo.title}} {{photo.subject}}
+            {{photo.caption}}
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+
   </body>
+
+  <footer>Footer</footer>
 </html>
