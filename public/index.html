@@ -44,20 +44,51 @@
 
       <!-- Login Form -->
       <p>Logged in username: {{ app.user.username }} </p>
+
+      <!-- Testing getUsers -->
+      <h4 ng-click="app.getUsers()">click to see secret stuff</h4>
+      <div> {{app.error}} </div>
+      <div ng-repeat="user in app.users">
+        <h1>{{user.username}}</h1>
+      </div>
+
       <form ng-submit="app.login(userPass)">
         <input type="text" ng-model="userPass.username" placeholder="username"/>
         <input type="password" ng-model="userPass.password" placeholder="password"/>
         <input type="submit"/>
       </form>
+      <a href="#" ng-click="app.logout()">Log Out</a>
 
 
       <div class="quotes">
+
+        <h1>Post new quote</h1>
+        <form ng-submit="app.postQuote(newQuote)">
+          <input type="text" ng-model="newQuote.author" placeholder="author"/>
+          <input type="text" ng-model="newQuote.content" placeholder="quote"/>
+          <input type="submit"/>
+        </form>
+
         <ul ng-repeat="quote in app.quotes">
           <li><p>{{quote.content}}</p> - {{quote.author}}</li>
         </ul>
       </div>
 
+
+
+
       <div class="photos">
+
+        <h1>Post new photo</h1>
+        <form ng-submit="app.postPhoto(newPhoto)">
+          <input type="text" ng-model="newPhoto.url" placeholder="url"/>
+          <input type="text" ng-model="newPhoto.title" placeholder="title"/>
+          <input type="text" ng-model="newPhoto.subject" placeholder="subject"/>
+          <input type="text" ng-model="newPhoto.caption" placeholder="caption"/>
+          <input type="submit"/>
+        </form>
+
+
         <ul ng-repeat="photo in app.photos">
           <li>
             <img class="posted-photo" src="{{photo.url}}" alt="">
@@ -67,6 +98,10 @@
         </ul>
 
       </div>
+
+
+
+
 
     </div>
 
