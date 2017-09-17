@@ -1,0 +1,33 @@
+// VARIABLES
+
+$fh-lime : #C8E462;
+$fh-navy : #072147;
+$fh-mint : #B7E49D;
+$fh-olive: #545C33;
+$fh-pink : #EA0034;
+$fh-grey : #F3FBEA;
+$fh-white: whitesmoke;
+$fh-coal : rgba(0,0,0,.9);
+
+$featured-image-width: 100%;
+
+
+// BODY STYLING
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: $fh-white;
+  color: $fh-olive;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  h1 {
+    color: $fh-navy;
+  }
+
+  img {
+    width: $featured-image-width;
+  }
+
+}
