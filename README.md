@@ -13,9 +13,19 @@ A website for women in action sports focused on culture, adventure, and female s
 
 ### Design
 
-* **Fonts:** Exo, Roboto (Google Fonts)
+* **Fonts:** Exo, Roboto (Google Fonts) (body), Polla (header)
 * **Frameworks:** Bootstrap (?)
 * Mobile-first responsive design
+
+Color scheme: graffiti
+
+* #C8E462
+* rgba(0,0,0,.8) - background
+* #072147
+* #B7E49D
+* #545C33
+* #C33344
+* #F3FBEA
 
 ---
 
