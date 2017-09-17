@@ -4,10 +4,44 @@ body {
   color: #545C33;
   width: 100%;
   margin: 0;
-  padding: 0; }
-  body h1 {
-    color: #072147; }
-  body img {
+  padding: 0;
+  position: relative; }
+  body div {
     width: 100%; }
+  body header {
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+    margin-top: 0; }
+    body header .header-text {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0; }
+      body header .header-text h1 {
+        color: #072147;
+        font-size: 50px; }
+    body header img {
+      min-width: 100%;
+      z-index: -100;
+      position: absolute;
+      top: 0;
+      left: 0;
+      max-height: 100%; }
+    body header .nav-main {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.8);
+      color: #B7E49D;
+      align-items: center; }
+      body header .nav-main * {
+        display: inline-flex;
+        flex-wrap: nowrap;
+        padding: 10px 30px 10px 30px;
+        font-size: 20px;
+        margin: 0 auto; }
 
 /*# sourceMappingURL=style.css.map */

@@ -7,7 +7,7 @@ $fh-olive: #545C33;
 $fh-pink : #EA0034;
 $fh-grey : #F3FBEA;
 $fh-white: whitesmoke;
-$fh-coal : rgba(0,0,0,.9);
+$fh-coal : rgba(0,0,0,.8);
 
 $featured-image-width: 100%;
 
@@ -21,13 +21,55 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
+  position: relative;
 
-  h1 {
-    color: $fh-navy;
+  div {
+    width: 100%;
   }
 
-  img {
-    width: $featured-image-width;
+
+  header {
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+    margin-top: 0;
+    .header-text {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      h1 {
+        color: $fh-navy;
+        font-size: 50px
+      }
+    }
+    img {
+      min-width: $featured-image-width;
+      z-index: -100;
+      position: absolute;
+      top: 0;
+      left: 0;
+      max-height: 100%;
+    }
+    .nav-main {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      z-index: 10;
+      background: $fh-coal;
+      color: $fh-mint;
+      align-items: center;
+      * {
+        display: inline-flex;
+        flex-wrap: nowrap;
+        padding: 10px 30px 10px 30px;
+        font-size: 20px;
+        margin: 0 auto;
+
+      }
+    }
   }
+
 
 }
