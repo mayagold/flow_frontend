@@ -26,14 +26,14 @@
         <img id="climb" src="assets/rope.jpg"/>
       </div>
       <div class="header-text">
-        <h1>Βία League</h1>
+        <h1>Νύξ</h1>
       </div>
       <nav class="nav-main">
         <ul>
           <li><a href="#">SNOW</a></li>
           <li><a href="#">SURF</a></li>
-          <li><a href="#">CLIMB</a></li>
-          <li><a href="#">TRAVEL</a></li>
+          <li><a href="#">LINEUP</a></li>
+          <li><a href="#">WISDOM</a></li>
         </ul>
       </nav>
     </header>
@@ -41,6 +41,15 @@
 
     <div class="main">
       body content
+
+      <!-- Login Form -->
+      <p>Logged in username: {{ app.user.username }} </p>
+      <form ng-submit="app.login(userPass)">
+        <input type="text" ng-model="userPass.username" placeholder="username"/>
+        <input type="password" ng-model="userPass.password" placeholder="password"/>
+        <input type="submit"/>
+      </form>
+
 
       <div class="quotes">
         <ul ng-repeat="quote in app.quotes">

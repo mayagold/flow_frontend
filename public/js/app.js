@@ -35,6 +35,19 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
     console.log(err);
   })
 
+  // Login function
 
+  this.login = function(userPass) {
+    console.log(userPass);
+    $http({
+      method: 'POST',
+      url: this.url + '/users/login',
+      data: { user: { username: userPass.username, password: userPass.password }}
+    }).then(function(response){
+      self.user = response.data.user;
+      localStorage.setItem('token', JSON.stringify(response.data.token));
+      console.log(localStorage.token);
+    }.bind(this));
+  }
 
 }])
