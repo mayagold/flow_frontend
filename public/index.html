@@ -51,8 +51,8 @@
       <div class="photos">
         <ul ng-repeat="photo in app.photos">
           <li>
-            <img src="{{photo.url}}" alt="">
-            {{photo.title}}: {{photo.subject}}
+            <img class="posted-photo" src="{{photo.url}}" alt="">
+            {{photo.title}} {{photo.subject}}
             {{photo.caption}}
           </li>
         </ul>

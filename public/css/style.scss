@@ -98,6 +98,50 @@ body {
     }
   }
 
+  .quotes {
+    background: $fh-white;
+    color: $fh-coal;
+
+    ul {
+      width: 90%;
+      margin: 0 auto;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+              flex-wrap: wrap;
+
+      li {
+        display: block;
+        text-align:justify;
+        width: 60%;
+        float: left;
+        overflow: hidden;
+        padding: 20px;
+      }
+
+    }
+  }
+
+  .photos {
+
+    background: $fh-olive;
+
+    .posted-photo {
+      max-width: 60%;
+      border: 2px solid $fh-coal;
+      padding: 4px;
+      background: $fh-white;
+      border-radius: 30px;
+      color: black;
+    }
+
+  }
+
   a:hover {
     color: $fh-pink
   }

@@ -65,6 +65,37 @@ body {
         font-size: 50px;
         text-decoration: none;
         color: #C8E462; }
+  body .quotes {
+    background: whitesmoke;
+    color: rgba(0, 0, 0, 0.8); }
+    body .quotes ul {
+      width: 90%;
+      margin: 0 auto;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      flex-wrap: wrap; }
+      body .quotes ul li {
+        display: block;
+        text-align: justify;
+        width: 60%;
+        float: left;
+        overflow: hidden;
+        padding: 20px; }
+  body .photos {
+    background: #545C33; }
+    body .photos .posted-photo {
+      max-width: 60%;
+      border: 2px solid rgba(0, 0, 0, 0.8);
+      padding: 4px;
+      background: whitesmoke;
+      border-radius: 30px;
+      color: black; }
   body a:hover {
     color: #EA0034; }
   body footer {
