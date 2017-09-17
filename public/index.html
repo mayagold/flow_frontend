@@ -70,7 +70,9 @@
         </form>
 
         <ul ng-repeat="quote in app.quotes">
-          <li><p>{{quote.content}}</p> - {{quote.author}}</li>
+          <li><p>{{quote.content}}</p> - {{quote.author}}
+            <a href="#" ng-click="deleteQuote(quote);">Delete</a>
+          </li>
         </ul>
       </div>
 
@@ -94,6 +96,7 @@
             <img class="posted-photo" src="{{photo.url}}" alt="">
             {{photo.title}} {{photo.subject}}
             {{photo.caption}}
+            <a href="#" ng-click="deletePhoto(photo);">Delete</a>
           </li>
         </ul>
 

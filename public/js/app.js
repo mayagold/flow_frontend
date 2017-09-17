@@ -61,6 +61,10 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
     }).catch(err=>console.log(err))
   }
 
+  // Delete routes for quotes and photos
+
+
+
   // Login function
 
   this.login = function(userPass) {
