@@ -8,34 +8,43 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
 
   console.log('hi');
 
-
   this.url = 'http://localhost:3000';
   var self = this;
   this.user = {};
   this.users = [];
   self.quotes = [];
   self.photos = [];
+  self.members = [];
   self.gear = [];
   self.showQuotes = false;
   self.showPhotos = false;
   self.showGear = false;
+  self.showMembers = false;
 
   this.toggleQuotes = function(){
     self.showQuotes = true;
     self.showPhotos = false;
     self.showGear = false;
+    self.showMembers = false;
   }
   this.togglePhotos = function(){
     self.showQuotes = false;
     self.showPhotos = true;
     self.showGear = false;
+    self.showMembers = false;
   }
   this.toggleGear = function(){
     self.showQuotes = false;
     self.showPhotos = false;
     self.showGear = true;
+    self.showMembers = false;
   }
-
+  this.toggleLineup = function(){
+    self.showQuotes = false;
+    self.showPhotos = false;
+    self.showGear = false;
+    self.showMembers = true;
+  }
   // Get routes for quotes, gear and photos
   $http({
     method: 'GET',
@@ -43,6 +52,15 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
   }).then(response=>{
     console.log(response);
     self.quotes = response.data;
+  }).catch(err=>{
+    console.log(err);
+  })
+  $http({
+    method: 'GET',
+    url: self.url + '/members'
+  }).then(response=>{
+    console.log(response);
+    self.members = response.data;
   }).catch(err=>{
     console.log(err);
   })
@@ -76,6 +94,16 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
       console.log(response);
     }).catch(err=>console.log(err))
   }
+  this.postToLineup = function(newProfile){
+    $http({
+      method: 'POST',
+      url: self.url + '/members',
+      data: { member: { name: newProfile.name, location: newProfile.location, sports: newProfile.sports, goals: newProfile.goals, user_id: self.user.id, photo: newProfile.photo }}
+    }).then(response=>{
+      self.members.unshift(response.data);
+      console.log(response);
+    }).catch(err=>console.log(err))
+  }
   this.postGearReview = function(newGear) {
     $http({
       method: 'POST',
@@ -101,8 +129,7 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
 
 
 
-  // Login function
-
+  // Login/reg/logout functions
   this.login = function(userPass){
     $http({
       method: 'POST',
@@ -123,28 +150,25 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
       self.login(userReg);
     })
   }
-
   //
-  this.getUsers = function(){
-    $http({
-      url: self.url + '/users',
-      method: 'GET',
-      headers: {
-        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
-      }
-    }).then(function(response){
-      console.log(response);
-      if (response.data.status==401){
-        this.error = "Unauthorized";
-      } else {
-        this.users = response.data;
-      }
-    }.bind(this));
-  }
-
+  // this.getUsers = function(){
+  //   $http({
+  //     url: self.url + '/users',
+  //     method: 'GET',
+  //     headers: {
+  //       Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+  //     }
+  //   }).then(function(response){
+  //     console.log(response);
+  //     if (response.data.status==401){
+  //       this.error = "Unauthorized";
+  //     } else {
+  //       this.users = response.data;
+  //     }
+  //   }.bind(this));
+  // }
   this.logout = function(){
     localStorage.clear('token');
     location.reload();
   }
-
 }])

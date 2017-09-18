@@ -39,7 +39,7 @@
           <!-- post quotes -->
           <li><a href="#" ng-click="app.togglePhotos()">GALLERY</a></li>
           <!-- photos -->
-          <li><a href="#">LINEUP</a></li>
+          <li><a href="#" ng-click="app.toggleLineup()">LINEUP</a></li>
           <!-- members -->
           <li><a href="#">FORUM</a></li>
           <li><a href="#">LOGIN</a></li>
@@ -137,7 +137,30 @@
         </div>
       </div>
 
-
+      <div class="lineup" ng-show=app.showMembers==true>
+        <h1>Create your NoEdits profile</h1>
+        <form ng-submit="app.postToLineup(newProfile)">
+          <input type="text" ng-model="newProfile.name" placeholder="name"/>
+          <input type="text" ng-model="newProfile.location" placeholder="Where are you based?"/>
+          <input type="text" ng-model="newProfile.sports" placeholder="Your sport(s)"/>
+          <input type="text" ng-model="newProfile.goals" placeholder="What are you working on?"/>
+          <input type="text" ng-model="newProfile.photo" placeholder="profile picture url"/>
+          <input type="submit"/>
+        </form>
+        <div class="profilesContainer">
+          <ul ng-repeat="member in app.members">
+            <li>
+              <img class="profile-pic" src="{{member.photo}}" alt="">
+              {{member.name}}<br/>{{member.location}}<br/>
+              {{member.sports}}<br/>{{member.goals}}
+              <div class="yours" ng-show="app.user.id==member.user_id">
+                <a href="#" ng-click="deleteProfile(profile);">Delete</a>
+                <a href="#" ng-click="editProfile(profile);">Edit</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
 
 
 
