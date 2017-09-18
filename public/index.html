@@ -26,21 +26,30 @@
         <img id="climb" src="assets/rope.jpg"/>
       </div>
       <div class="header-text">
-        <h1>Νύξ</h1>
+        <h1>NO EDITS</h1>
       </div>
       <nav class="nav-main">
         <ul>
-          <li><a href="#">SNOW</a></li>
-          <li><a href="#">SURF</a></li>
+          <li><a href="#">ADVENTURE</a></li>
+          <!-- snow reports, surf reports, destinations -->
+          <li><a href="#">CULTURE</a></li>
+          <li><a href="#" ng-click="app.toggleGear()">GEAR/TECH</a></li>
+          <!-- post gear reviews -->
+          <li><a href="#" ng-click="app.toggleQuotes()">INSPIRATION</a></li>
+          <!-- post quotes -->
+          <li><a href="#" ng-click="app.togglePhotos()">GALLERY</a></li>
+          <!-- photos -->
           <li><a href="#">LINEUP</a></li>
-          <li><a href="#">WISDOM</a></li>
+          <!-- members -->
+          <li><a href="#">FORUM</a></li>
+          <li><a href="#">LOGIN</a></li>
+          <li><a href="#">JOIN</a></li>
         </ul>
       </nav>
     </header>
 
 
     <div class="main">
-      body content
 
       <!-- Login Form -->
       <p>Logged in username: {{ app.user.username }} </p>
@@ -60,27 +69,27 @@
       <a href="#" ng-click="app.logout()">Log Out</a>
 
 
-      <div class="quotes">
-
+      <div class="quotes" ng-show="app.showQuotes==true">
         <h1>Post new quote</h1>
         <form ng-submit="app.postQuote(newQuote)">
           <input type="text" ng-model="newQuote.author" placeholder="author"/>
           <input type="text" ng-model="newQuote.content" placeholder="quote"/>
           <input type="submit"/>
         </form>
-
-        <ul ng-repeat="quote in app.quotes">
-          <li><p>{{quote.content}}</p> - {{quote.author}}
-            <a href="#" ng-click="deleteQuote(quote);">Delete</a>
-          </li>
-        </ul>
+        <div class="quotesContainer">
+          <ul ng-repeat="quote in app.quotes">
+            <li><p>{{quote.content}}</p> - {{quote.author}}
+              <div class="yours" ng-show="app.user.id==quote.user_id">
+                <p>You posted this quote.</p>
+                <a href="#" ng-click="deleteQuote(quote);">Delete</a>
+                <a href="#" ng-click="editQuote(quote)">Edit</a>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
 
-
-
-
-      <div class="photos">
-
+      <div class="photos" ng-show=app.showPhotos==true>
         <h1>Post new photo</h1>
         <form ng-submit="app.postPhoto(newPhoto)">
           <input type="text" ng-model="newPhoto.url" placeholder="url"/>
@@ -89,17 +98,46 @@
           <input type="text" ng-model="newPhoto.caption" placeholder="caption"/>
           <input type="submit"/>
         </form>
+        <div class="photosContainer">
+          <ul ng-repeat="photo in app.photos">
+            <li>
+              <img class="posted-photo" src="{{photo.url}}" alt="">
+              <!-- {{photo.title}} {{photo.subject}}
+              {{photo.caption}} -->
+              <div class="yours" ng-show="app.user.id==photo.user_id">
+                <p>You posted this photo.</p>
+                <a href="#" ng-click="deletePhoto(photo);">Delete</a>
+                <a href="#" ng-click="editPhoto(photo);">Edit</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-
-        <ul ng-repeat="photo in app.photos">
-          <li>
-            <img class="posted-photo" src="{{photo.url}}" alt="">
-            {{photo.title}} {{photo.subject}}
-            {{photo.caption}}
-            <a href="#" ng-click="deletePhoto(photo);">Delete</a>
-          </li>
-        </ul>
-
+      <div class="gear" ng-show=app.showGear==true>
+        <h1>Post new gear review</h1>
+        <form ng-submit="app.postGearReview(newGear)">
+          <input type="text" ng-model="newGear.name" placeholder="name"/>
+          <input type="text" ng-model="newGear.image_url" placeholder="image url"/>
+          <input type="text" ng-model="newGear.brand" placeholder="brand"/>
+          <input type="text" ng-model="newGear.sport" placeholder="sport"/>
+          <input type="text" ng-model="newGear.review" placeholder="review"/>
+          <input type="submit"/>
+        </form>
+        <div class="gearContainer">
+          <ul ng-repeat="gear in app.gear">
+            <li>
+              <img class="posted-gear" src="{{gear.image_url}}" alt="">
+              {{gear.name}}<br/>{{gear.brand}}<br/>
+              {{gear.review}}<small>{{gear.sport}}</small>
+              <div class="yours" ng-show="app.user.id==gear.user_id">
+                <p>You posted this gear review.</p>
+                <a href="#" ng-click="deleteGear(gear);">Delete</a>
+                <a href="#" ng-click="editGear(gear);">Edit</a>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
 
 

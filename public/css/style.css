@@ -1,3 +1,12 @@
+@media screen and (min-width: 1024px) {
+  body {
+    font-family: "Roboto", sans-serif;
+    background-color: whitesmoke;
+    color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative; } }
 body {
   font-family: "Roboto", sans-serif;
   background-color: whitesmoke;
@@ -6,12 +15,10 @@ body {
   margin: 0;
   padding: 0;
   position: relative; }
-  body div {
-    width: 100%; }
   body header {
     position: relative;
     width: 100%;
-    min-height: 700px;
+    min-height: 60vw;
     margin-top: 0; }
     body header .header-text {
       width: 100%;
@@ -29,72 +36,77 @@ body {
       width: 100%;
       position: absolute;
       height: 100%; }
-    body header #climb {
-      z-index: 9;
-      top: 0;
-      right: 0; }
-    body header #fog {
-      z-index: 8;
-      bottom: 0;
-      right: 0; }
-    body header #ocean {
-      z-index: 7;
-      bottom: 0;
-      left: 0; }
-    body header .nav-main {
-      position: absolute;
-      width: 100%;
-      top: 0;
-      z-index: 10;
-      background: rgba(0, 0, 0, 0.8);
-      color: #C8E462;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-flex-direction: row;
-      flex-direction: row;
-      -webkit-align-items: center;
-      align-items: center;
-      -webkit-justify-content: center;
-      justify-content: center; }
-      body header .nav-main ul {
-        margin: 0 auto; }
-      body header .nav-main * {
-        display: inline-flex;
-        flex-wrap: nowrap;
-        padding: 10px 10px 10px 10px;
-        font-size: 50px;
-        text-decoration: none;
-        color: #C8E462; }
+  body .nav-main {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.8);
+    color: #C8E462;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center; }
+    body .nav-main ul {
+      margin: 0 auto; }
+    body .nav-main * {
+      display: inline-flex;
+      flex-wrap: wrap;
+      padding: 10px 10px 10px 10px;
+      font-size: 20px;
+      text-decoration: none;
+      color: #C8E462; }
   body .quotes {
     background: whitesmoke;
     color: rgba(0, 0, 0, 0.8); }
-    body .quotes ul {
-      width: 90%;
-      margin: 0 auto;
-      display: -webkit-flex;
+    body .quotes .quotesContainer {
       display: flex;
+      display: -webkit-flex;
       -webkit-flex-direction: row;
       flex-direction: row;
-      -webkit-align-items: center;
-      align-items: center;
-      -webkit-justify-content: center;
-      justify-content: center;
+      -webkit-align-items: stretch;
+      align-items: stretch;
+      align-content: flex-start;
+      -webkit-justify-content: flex-start;
+      justify-content: flex-start;
       flex-wrap: wrap; }
-      body .quotes ul li {
-        display: block;
-        text-align: justify;
-        width: 60%;
-        float: left;
-        overflow: hidden;
-        padding: 20px; }
-  body .photos {
-    background: #545C33; }
-    body .photos .posted-photo {
-      max-width: 60%;
-      border: 2px solid rgba(0, 0, 0, 0.8);
-      padding: 4px;
+      body .quotes .quotesContainer ul {
+        max-width: 40%;
+        text-transform: uppercase;
+        background: whitesmoke;
+        margin: 15px;
+        font-size: 18px;
+        padding: 10px;
+        color: rgba(0, 0, 0, 0.8); }
+        body .quotes .quotesContainer ul * {
+          display: block; }
+  body .photos .photosContainer {
+    display: flex;
+    display: -webkit-flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+    align-content: flex-start;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    flex-wrap: wrap; }
+    body .photos .photosContainer ul {
+      width: 30%;
+      margin: 10px auto;
+      padding: 10px; }
+      body .photos .photosContainer ul li {
+        display: block; }
+    body .photos .photosContainer .posted-photo {
+      max-width: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.8);
+      padding: 2px;
       background: whitesmoke;
-      border-radius: 30px;
+      border-radius: 5px;
       color: black; }
   body a:hover {
     color: #EA0034; }
@@ -103,7 +115,7 @@ body {
     bottom: 0;
     background: rgba(0, 0, 0, 0.8);
     width: 100%;
-    height: 200px;
+    height: 50px;
     color: #F3FBEA; }
 
 /*# sourceMappingURL=style.css.map */

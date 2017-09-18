@@ -16,6 +16,19 @@ $a-decor : none;
 
 // BODY STYLING
 
+@media  screen and (min-width: 1024px) {
+  body {
+    font-family: "Roboto", sans-serif;
+    background-color: $fh-white;
+    color: $fh-coal;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+
+}
+
 body {
   font-family: "Roboto", sans-serif;
   background-color: $fh-white;
@@ -25,15 +38,10 @@ body {
   padding: 0;
   position: relative;
 
-  div {
-    width: 100%;
-  }
-
-
   header {
     position: relative;
     width: 100%;
-    min-height: 700px;
+    min-height: 60vw;
     margin-top: 0;
     .header-text {
       width: 100%;
@@ -50,95 +58,112 @@ body {
       }
     }
     img {
-      width: $featured-image-width;
+      width: 100%;
       position: absolute;
       height: 100%;
     }
-    #climb {
-      z-index: 9;
-      top: 0;
-      right: 0;
-    }
-    #fog {
-      z-index: 8;
-      bottom: 0;
-      right: 0;
-    }
-    #ocean {
-      z-index: 7;
-      bottom: 0;
-      left: 0;
-    }
-    .nav-main {
-      position: absolute;
-      width: 100%;
-      top: 0;
-      z-index: 10;
-      background: $fh-coal;
-      color: $fh-lime;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-flex-direction: row;
-      flex-direction: row;
-      -webkit-align-items: center;
-      align-items: center;
-      -webkit-justify-content: center;
-      justify-content: center;
-      ul {
-        margin: 0 auto;
-      }
-      * {
-        display: inline-flex;
-        flex-wrap: nowrap;
-        padding: 10px 10px 10px 10px;
-        font-size: 50px;
-        text-decoration: $a-decor;
-        color: $fh-lime;
-      }
-    }
+
+
   }
+
+
+      .nav-main {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        z-index: 10;
+        background: $fh-coal;
+        color: $fh-lime;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        ul {
+          margin: 0 auto;
+        }
+        * {
+          display: inline-flex;
+          flex-wrap: wrap;
+          padding: 10px 10px 10px 10px;
+          font-size: 20px;
+          text-decoration: $a-decor;
+          color: $fh-lime;
+        }
+      }
 
   .quotes {
     background: $fh-white;
     color: $fh-coal;
 
-    ul {
-      width: 90%;
-      margin: 0 auto;
-      display: -webkit-flex;
+    .quotesContainer{
+
       display: flex;
+      display: -webkit-flex;
       -webkit-flex-direction: row;
       flex-direction: row;
-      -webkit-align-items: center;
-      align-items: center;
-      -webkit-justify-content: center;
-      justify-content: center;
-              flex-wrap: wrap;
+      -webkit-align-items: stretch;
+      align-items: stretch;
+      align-content: flex-start;
+      -webkit-justify-content: flex-start;
+      justify-content:flex-start;
+      flex-wrap: wrap;
+      ul {
+        max-width: 40%;
+        text-transform: uppercase;
+        background: $fh-white;
 
-      li {
-        display: block;
-        text-align:justify;
-        width: 60%;
-        float: left;
-        overflow: hidden;
-        padding: 20px;
+        margin: 15px;
+        font-size: 18px;
+        padding: 10px;
+        color: $fh-coal;
+
+        * {
+          display: block;
+        }
+
+
       }
-
     }
+
   }
 
   .photos {
 
-    background: $fh-olive;
+    .photosContainer {
 
-    .posted-photo {
-      max-width: 60%;
-      border: 2px solid $fh-coal;
-      padding: 4px;
-      background: $fh-white;
-      border-radius: 30px;
-      color: black;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      -webkit-align-items: center;
+      align-items: center;
+      align-content: flex-start;
+      -webkit-justify-content: space-around;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      ul {
+        width: 30%;
+        margin: 10px auto;
+        padding: 10px;
+        li {
+          display: block;
+        }
+      }
+      .posted-photo {
+        max-width: 100%;
+        border: 1px solid $fh-coal;
+        padding: 2px;
+        background: $fh-white;
+        border-radius: 5px;
+        color: black;
+      }
     }
+
+
 
   }
 
@@ -151,7 +176,7 @@ body {
     bottom: 0;
     background: $fh-coal;
     width: 100%;
-    height: 200px;
+    height: 50px;
     color: $fh-grey;
   }
 

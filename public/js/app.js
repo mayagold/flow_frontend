@@ -2,8 +2,6 @@
 var app = angular.module('flow-app', []);
 
 
-
-
 // AngularJS Controller
 
 app.controller('appController', ['$http', '$scope', '$filter', function($http, $scope, $filter){
@@ -17,7 +15,28 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
   this.users = [];
   self.quotes = [];
   self.photos = [];
+  self.gear = [];
+  self.showQuotes = false;
+  self.showPhotos = false;
+  self.showGear = false;
 
+  this.toggleQuotes = function(){
+    self.showQuotes = true;
+    self.showPhotos = false;
+    self.showGear = false;
+  }
+  this.togglePhotos = function(){
+    self.showQuotes = false;
+    self.showPhotos = true;
+    self.showGear = false;
+  }
+  this.toggleGear = function(){
+    self.showQuotes = false;
+    self.showPhotos = false;
+    self.showGear = true;
+  }
+
+  // Get routes for quotes, gear and photos
   $http({
     method: 'GET',
     url: self.url + '/quotes'
@@ -27,7 +46,15 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
   }).catch(err=>{
     console.log(err);
   })
-
+  $http({
+    method: 'GET',
+    url: self.url + '/gears'
+  }).then(response=>{
+    console.log(response);
+    self.gear = response.data;
+  }).catch(err=>{
+    console.log(err);
+  })
   $http({
     method: 'GET',
     url: self.url + '/photos'
@@ -38,7 +65,7 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
     console.log(err);
   })
 
-  // Post routes for quotes and photos
+  // Post routes for quotes, gear reviews, and photos
   this.postQuote = function(newQuote) {
     $http({
       method: 'POST',
@@ -49,7 +76,16 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
       console.log(response);
     }).catch(err=>console.log(err))
   }
-
+  this.postGearReview = function(newGear) {
+    $http({
+      method: 'POST',
+      url: self.url + '/gears',
+      data: { gear: { name: newGear.name, brand: newGear.brand, sport: newGear.sport, review: newGear.review, user_id: self.user.id, image_url: newGear.image_url }}
+    }).then(response=>{
+      self.gear.unshift(response.data);
+      console.log(response);
+    }).catch(err=>console.log(err))
+  }
   this.postPhoto = function(newPhoto) {
     $http({
       method: 'POST',
@@ -61,7 +97,7 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
     }).catch(err=>console.log(err))
   }
 
-  // Delete routes for quotes and photos
+  // Delete routes for quotes, gears, photos
 
 
 
