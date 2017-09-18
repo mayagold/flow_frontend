@@ -50,20 +50,17 @@
 
 
     <div class="main">
+      <p ng-show="app.user.username">{{ app.user.username }}, you are logged in. </p>
 
-      <!-- Login Form -->
-      <p>Logged in username: {{ app.user.username }} </p>
-
-      <!-- Testing getUsers -->
-      <h4 ng-click="app.getUsers()">click to see secret stuff</h4>
-      <div> {{app.error}} </div>
-      <div ng-repeat="user in app.users">
-        <h1>{{user.username}}</h1>
-      </div>
-
+      <!-- User Auth Forms -->
       <form ng-submit="app.login(userPass)">
         <input type="text" ng-model="userPass.username" placeholder="username"/>
         <input type="password" ng-model="userPass.password" placeholder="password"/>
+        <input type="submit"/>
+      </form>
+      <form ng-submit="app.register(userReg)">
+        <input type="text" ng-model="userReg.username" placeholder="create username"/>
+        <input type="password" ng-model="userReg.password" placeholder="create password"/>
         <input type="submit"/>
       </form>
       <a href="#" ng-click="app.logout()">Log Out</a>
@@ -130,7 +127,7 @@
               <img class="posted-gear" src="{{gear.image_url}}" alt="">
               {{gear.name}}<br/>{{gear.brand}}<br/>
               {{gear.review}}<small>{{gear.sport}}</small>
-              <div class="yours" ng-show="app.user.id==gear.user_id">
+              <div class="yours" ng-show="app.user.id==gear.user_id.to_i">
                 <p>You posted this gear review.</p>
                 <a href="#" ng-click="deleteGear(gear);">Delete</a>
                 <a href="#" ng-click="editGear(gear);">Edit</a>

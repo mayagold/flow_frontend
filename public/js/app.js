@@ -103,7 +103,7 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
 
   // Login function
 
-  this.login = function(userPass) {
+  this.login = function(userPass){
     $http({
       method: 'POST',
       url: this.url + '/users/login',
@@ -114,6 +114,16 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
       localStorage.setItem('token', JSON.stringify(response.data.token));
     }.bind(this));
   }
+  this.register = function(userReg){
+    $http({
+      method: 'POST',
+      url: self.url + '/users/',
+      data: { user: {username: userReg.username, password: userReg.password }},
+    }).then(function(result){
+      self.login(userReg);
+    })
+  }
+
   //
   this.getUsers = function(){
     $http({
