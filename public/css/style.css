@@ -71,7 +71,7 @@ nav {
   .nav-mobile {
     display: block; }
 
-  #climb {
+  .climb {
     width: 300px; }
 
   .homepage-image {
@@ -145,16 +145,16 @@ body {
   width: 100%;
   margin: 0;
   padding: 0; }
-  body .homepage {
+  body .climb {
+    max-width: 50%;
+    margin: 0 auto; }
+  body .homepage, body .register {
     width: 90%;
     max-height: 60%;
     margin: 0 auto;
     padding: 20px;
     text-align: center; }
-    body .homepage .homepage-image #climb {
-      max-width: 50%;
-      margin: 0 auto; }
-    body .homepage h1 {
+    body .homepage h1, body .register h1 {
       color: #EA0034;
       font-size: 2em; }
   body .quotes {
@@ -214,7 +214,7 @@ body {
   body .form-container {
     overflow: hidden;
     position: relative;
-    margin: 0 auto;
+    margin: 0 auto 100px auto;
     padding: 0;
     background: whitesmoke;
     color: #374341;

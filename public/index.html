@@ -61,10 +61,10 @@
 
       <header ng-show="app.homepage==true" class="homepage">
         <div class="homepage-image">
-          <img id="climb" src="assets/rope.jpg"/>
+          <img class="climb" src="assets/rope.jpg"/>
         </div>
         <div class="homepage-text">
-          <h1>NO EDITS</h1>
+          <h1>LOG IN. NO EDITS.</h1>
         </div>
         <form class="form-container" ng-submit="app.login(userPass)">
           <label><span>Username</span><input type="text" ng-model="userPass.username" placeholder="____________________________"/></label>
@@ -78,14 +78,14 @@
       <!-- User Auth Forms -->
       <div class="register" ng-show="app.register==true">
         <div class="homepage-image">
-          <img id="climb" src="assets/rope.jpg"/>
+          <img class="climb" src="assets/rope.jpg"/>
         </div>
         <div class="homepage-text">
-          <h1>NO EDITS</h1>
+          <h1>JOIN US. NO EDITS.</h1>
         </div>
-        <form ng-submit="app.register(userReg)">
-          <input type="text" ng-model="userReg.username" placeholder="create username"/><br/>
-          <input type="password" ng-model="userReg.password" placeholder="create password"/><br/>
+        <form class="form-container" ng-submit="app.register(userReg)">
+          <label><span>Username</span><input type="text" ng-model="userReg.username" placeholder="create username"/></label><br/>
+          <label><span>Username</span><input type="password" ng-model="userReg.password" placeholder="create password"/></label><br/>
           <input type="submit"/>
         </form>
       </div>
