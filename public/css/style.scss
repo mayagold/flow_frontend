@@ -114,10 +114,13 @@ nav {
     display: block;
   }
   #climb {
-    width: 200px;
+    width: 300px;
   }
   .homepage-image {
-    max-width: 80%;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 50px;
   }
   main {
     width: 80%;
@@ -213,6 +216,7 @@ body {
     .homepage-image {
       #climb {
         max-width: 50%;
+        margin: 0 auto;
       }
     }
     h1 {
@@ -290,11 +294,27 @@ body {
         color: black;
       }
     }
+  }
 
+  input {
+    border: none;
+    outline: none;
+    background: none;
+    padding: 20px;
 
+    text-align: center;
 
   }
 
+  .form-container {
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    background: $fh-white;
+    color: $fh-coal;
+    text-transform: uppercase;
+  }
 
   footer {
     position: fixed;

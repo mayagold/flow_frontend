@@ -53,6 +53,16 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
   self.showGear = false;
   self.showMembers = false;
   self.homepage = true;
+  self.register = false;
+
+  this.toggleRegister = function(){
+    self.register = true;
+    self.showQuotes = false;
+    self.showPhotos = false;
+    self.showGear = false;
+    self.showMembers = false;
+    self.homepage = false;
+  }
 
   this.toggleQuotes = function(){
     self.showQuotes = true;
@@ -60,6 +70,8 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
     self.showGear = false;
     self.showMembers = false;
     self.homepage = false;
+    self.register = false;
+
   }
   this.togglePhotos = function(){
     self.showQuotes = false;
@@ -67,6 +79,8 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
     self.showGear = false;
     self.showMembers = false;
     self.homepage = false;
+    self.register = false;
+
   }
   this.toggleGear = function(){
     self.showQuotes = false;
@@ -74,6 +88,8 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
     self.showGear = true;
     self.showMembers = false;
     self.homepage = false;
+    self.register = false;
+
   }
   this.toggleLineup = function(){
     self.showQuotes = false;
@@ -81,6 +97,8 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
     self.showGear = false;
     self.showMembers = true;
     self.homepage = false;
+    self.register = false;
+
   }
   this.toggleHomepage = function(){
     self.showQuotes = false;
@@ -88,6 +106,8 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
     self.showGear = false;
     self.showMembers = false;
     self.homepage = true;
+    self.register = false;
+
   }
   // Get routes for quotes, gear and photos
   $http({

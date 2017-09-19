@@ -46,7 +46,7 @@
             <li><a href="#">ACCOUNT</a>
               <ul class="nav-dropdown">
                 <li><a href="#" ng-click="app.toggleHomepage()">LOGIN</a></li>
-                <li><a href="#">JOIN</a></li>
+                <li><a href="#" ng-click="app.toggleRegister()">JOIN</a></li>
               </ul>
             </li>
           </ul>
@@ -66,19 +66,29 @@
         <div class="homepage-text">
           <h1>NO EDITS</h1>
         </div>
-        <form ng-submit="app.login(userPass)">
-          <input type="text" ng-model="userPass.username" placeholder="username"/><br/>
-          <input type="password" ng-model="userPass.password" placeholder="password"/><br/>
-          <input type="submit"/>
+        <form class="form-container" ng-submit="app.login(userPass)">
+          <label><span>Username</span><input type="text" ng-model="userPass.username" placeholder="____________________________"/></label>
+          <br/>
+          <label><span>Password</span><input type="password" ng-model="userPass.password" placeholder="____________________________"/></label>
+          <br/>
+          <input type="SUBMIT" value="SUBMIT"/>
         </form>
       </header>
 
       <!-- User Auth Forms -->
-      <form ng-submit="app.register(userReg)">
-        <input type="text" ng-model="userReg.username" placeholder="create username"/><br/>
-        <input type="password" ng-model="userReg.password" placeholder="create password"/><br/>
-        <input type="submit"/>
-      </form>
+      <div class="register" ng-show="app.register==true">
+        <div class="homepage-image">
+          <img id="climb" src="assets/rope.jpg"/>
+        </div>
+        <div class="homepage-text">
+          <h1>NO EDITS</h1>
+        </div>
+        <form ng-submit="app.register(userReg)">
+          <input type="text" ng-model="userReg.username" placeholder="create username"/><br/>
+          <input type="password" ng-model="userReg.password" placeholder="create password"/><br/>
+          <input type="submit"/>
+        </form>
+      </div>
 
 
 
