@@ -10,10 +10,10 @@
   line-height: 70px;
   text-transform: uppercase;
   font-size: 1.4em;
-  color: whitesmoke; }
+  color: #F09900; }
   .logo a,
   .logo a:visited {
-    color: whitesmoke;
+    color: #F09900;
     text-decoration: none; }
 
 .nav-container {
@@ -71,6 +71,18 @@ nav {
   .nav-mobile {
     display: block; }
 
+  #climb {
+    width: 200px; }
+
+  .homepage-image {
+    max-width: 80%; }
+
+  main {
+    width: 80%;
+    padding: 0; }
+    main form {
+      width: 60%; }
+
   nav {
     width: 100%;
     padding: 70px 0 15px; }
@@ -120,6 +132,9 @@ nav {
     #nav-toggle.active span:after {
       transform: rotate(-45deg); }
 
+form {
+  max-width: 50%; }
+
 body {
   font-family: "Roboto", sans-serif;
   background-color: whitesmoke;
@@ -127,6 +142,17 @@ body {
   width: 100%;
   margin: 0;
   padding: 0; }
+  body .homepage {
+    width: 90%;
+    max-height: 60%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center; }
+    body .homepage .homepage-image #climb {
+      max-width: 50%; }
+    body .homepage h1 {
+      color: #EA0034;
+      font-size: 2em; }
   body .quotes {
     background: whitesmoke;
     color: #374341; }
@@ -181,6 +207,11 @@ body {
     background: #374341;
     width: 100%;
     height: 50px;
-    color: #F3FBEA; }
+    color: #C8E462;
+    padding-left: 20px;
+    text-transform: uppercase; }
+    body footer #logout {
+      color: #F09900;
+      text-decoration: none; }
 
 /*# sourceMappingURL=style.css.map */

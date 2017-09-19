@@ -52,30 +52,42 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
   self.showPhotos = false;
   self.showGear = false;
   self.showMembers = false;
+  self.homepage = true;
 
   this.toggleQuotes = function(){
     self.showQuotes = true;
     self.showPhotos = false;
     self.showGear = false;
     self.showMembers = false;
+    self.homepage = false;
   }
   this.togglePhotos = function(){
     self.showQuotes = false;
     self.showPhotos = true;
     self.showGear = false;
     self.showMembers = false;
+    self.homepage = false;
   }
   this.toggleGear = function(){
     self.showQuotes = false;
     self.showPhotos = false;
     self.showGear = true;
     self.showMembers = false;
+    self.homepage = false;
   }
   this.toggleLineup = function(){
     self.showQuotes = false;
     self.showPhotos = false;
     self.showGear = false;
     self.showMembers = true;
+    self.homepage = false;
+  }
+  this.toggleHomepage = function(){
+    self.showQuotes = false;
+    self.showPhotos = false;
+    self.showGear = false;
+    self.showMembers = false;
+    self.homepage = true;
   }
   // Get routes for quotes, gear and photos
   $http({

@@ -45,7 +45,7 @@
             <!-- members -->
             <li><a href="#">ACCOUNT</a>
               <ul class="nav-dropdown">
-                <li><a href="#">LOGIN</a></li>
+                <li><a href="#" ng-click="app.toggleHomepage()">LOGIN</a></li>
                 <li><a href="#">JOIN</a></li>
               </ul>
             </li>
@@ -54,33 +54,32 @@
       </div>
     </section>
 
-    <header>
-      <div class="background-image">
-        <!-- <img id="climb" src="assets/rope.jpg"/> -->
-      </div>
-      <div class="header-text">
-        <h1>NO EDITS</h1>
-      </div>
 
-
-    </header>
 
 
     <div class="main">
-      <p ng-show="app.user.username">{{ app.user.username }}, you are logged in. </p>
+
+      <header ng-show="app.homepage==true" class="homepage">
+        <div class="homepage-image">
+          <img id="climb" src="assets/rope.jpg"/>
+        </div>
+        <div class="homepage-text">
+          <h1>NO EDITS</h1>
+        </div>
+        <form ng-submit="app.login(userPass)">
+          <input type="text" ng-model="userPass.username" placeholder="username"/><br/>
+          <input type="password" ng-model="userPass.password" placeholder="password"/><br/>
+          <input type="submit"/>
+        </form>
+      </header>
 
       <!-- User Auth Forms -->
-      <form ng-submit="app.login(userPass)">
-        <input type="text" ng-model="userPass.username" placeholder="username"/>
-        <input type="password" ng-model="userPass.password" placeholder="password"/>
-        <input type="submit"/>
-      </form>
       <form ng-submit="app.register(userReg)">
-        <input type="text" ng-model="userReg.username" placeholder="create username"/>
-        <input type="password" ng-model="userReg.password" placeholder="create password"/>
+        <input type="text" ng-model="userReg.username" placeholder="create username"/><br/>
+        <input type="password" ng-model="userReg.password" placeholder="create password"/><br/>
         <input type="submit"/>
       </form>
-      <a href="#" ng-click="app.logout()">Log Out</a>
+
 
 
       <div class="quotes" ng-show="app.showQuotes==true">
@@ -185,5 +184,8 @@
 
   </body>
 
-  <footer>Footer</footer>
+  <footer>
+    <p ng-show="app.user.username">{{ app.user.username }}, you are logged in. <a id="logout" href="#" ng-click="app.logout()">click to Log Out</a></p>
+
+  </footer>
 </html>
