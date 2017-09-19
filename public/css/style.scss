@@ -1,5 +1,6 @@
 // VARIABLES
 
+// colors
 $fh-lime : #C8E462;
 $fh-navy : #072147;
 $fh-mint : #B7E49D;
@@ -7,26 +8,173 @@ $fh-olive: #545C33;
 $fh-pink : #EA0034;
 $fh-grey : #F3FBEA;
 $fh-white: whitesmoke;
-$fh-coal : rgba(0,0,0,.8);
+$fh-coal : #374341;
 
 $featured-image-width: 100%;
-
 $a-decor : none;
+
+// navigation
+$content-width: 1000px;
+$breakpoint: 800px;
+$nav-height: 70px;
+$nav-background: $fh-coal;
+$nav-font-color: $fh-lime;
+$link-hover-color: $fh-pink;
 
 
 // BODY STYLING
 
-@media  screen and (min-width: 1024px) {
-  body {
-    font-family: "Roboto", sans-serif;
-    background-color: $fh-white;
-    color: $fh-coal;
-    width: 100%;
+.navigation {
+  height: $nav-height;
+  background: $nav-background;
+}
+
+.logo {
+  position: absolute;
+  padding-left: 20px;
+  float: left;
+  line-height: $nav-height;
+  text-transform: uppercase;
+  font-size: 1.4em;
+  color: $fh-white;
+  a,
+  a:visited {
+    color: $fh-white;
+    text-decoration: none;
+  }
+}
+
+.nav-container {
+  max-width: $content-width;
+  margin: 0 auto;
+}
+
+nav {
+  float: right;
+  ul {
+    list-style: none;
     margin: 0;
     padding: 0;
-    position: relative;
+    li {
+      float: left;
+      position: relative;
+      a,
+      a:visited {
+        display: block;
+        padding: 0 20px;
+        line-height: $nav-height;
+        background: $nav-background;
+        color: $nav-font-color;
+        text-decoration: none;
+        &:hover {
+          background: $link-hover-color;
+          color: $nav-font-color;
+        }
+        &:not(:only-child):after {
+          padding-left: 4px;
+          content: ' ▾';
+        }
+      } // Dropdown list
+      ul li {
+        min-width: 190px;
+        a {
+          padding: 15px;
+          line-height: 20px;
+        }
+      }
+    }
   }
+}
 
+// Dropdown list binds to JS toggle event
+.nav-dropdown {
+  position: absolute;
+  display: none;
+  z-index: 1;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile navigation */
+
+// Binds to JS Toggle
+.nav-mobile {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: $nav-background;
+  height: $nav-height;
+  width: $nav-height;
+}
+@media only screen and (max-width: $breakpoint) {
+  // Hamburger nav visible on mobile only
+  .nav-mobile {
+    display: block;
+  }
+  nav {
+   width: 100%;
+    padding: $nav-height 0 15px;
+    ul {
+      display: none;
+      li {
+        float: none;
+        a {
+          padding: 15px;
+          line-height: 20px;
+        }
+        ul li a {
+          padding-left: 30px;
+        }
+      }
+    }
+  }
+  .nav-dropdown {
+    position: static;
+  }
+}
+@media screen and (min-width: $breakpoint) {
+  .nav-list {
+    display: block !important;
+  }
+}
+#nav-toggle {
+  position: absolute;
+  left: 18px;
+  top: 22px;
+  cursor: pointer;
+  padding: 10px 35px 16px 0px;
+  span,
+  span:before,
+  span:after {
+    cursor: pointer;
+    border-radius: 1px;
+    height: 5px;
+    width: 35px;
+    background: $nav-font-color;
+    position: absolute;
+    display: block;
+    content: '';
+    transition: all 300ms ease-in-out;
+  }
+  span:before {
+    top: -10px;
+  }
+  span:after {
+    bottom: -10px;
+  }
+  &.active span {
+    background-color: transparent;
+    &:before,
+    &:after {
+      top: 0;
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
 }
 
 body {
@@ -36,64 +184,33 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  position: relative;
 
-  header {
-    position: relative;
-    width: 100%;
-    min-height: 60vw;
-    margin-top: 0;
-    .header-text {
-      width: 100%;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      padding: 0;
-      z-index: 40;
-      h1 {
-        color: $fh-grey;
-        font-size: 80px;
-        padding: 0;
-        margin: 0
-      }
-    }
-    img {
-      width: 100%;
-      position: absolute;
-      height: 100%;
-    }
+  // header {
+  //   position: relative;
+  //   width: 100%;
+  //   min-height: 60vw;
+  //   margin-top: 0;
+  //   .header-text {
+  //     width: 100%;
+  //     position: absolute;
+  //     bottom: 0;
+  //     left: 0;
+  //     padding: 0;
+  //     z-index: 40;
+  //     h1 {
+  //       color: $fh-grey;
+  //       font-size: 80px;
+  //       padding: 0;
+  //       margin: 0
+  //     }
+  //   }
+  //   img {
+  //     width: 100%;
+  //     position: absolute;
+  //     height: 100%;
+  //   }
+  // }
 
-
-  }
-
-
-      .nav-main {
-        position: absolute;
-        width: 100%;
-        top: 0;
-        z-index: 10;
-        background: $fh-coal;
-        color: $fh-lime;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-flex-direction: row;
-        flex-direction: row;
-        -webkit-align-items: center;
-        align-items: center;
-        -webkit-justify-content: center;
-        justify-content: center;
-        ul {
-          margin: 0 auto;
-        }
-        * {
-          display: inline-flex;
-          flex-wrap: wrap;
-          padding: 10px 10px 10px 10px;
-          font-size: 20px;
-          text-decoration: $a-decor;
-          color: $fh-lime;
-        }
-      }
 
   .quotes {
     background: $fh-white;
@@ -167,9 +284,6 @@ body {
 
   }
 
-  a:hover {
-    color: $fh-pink
-  }
 
   footer {
     position: fixed;

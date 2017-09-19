@@ -20,32 +20,49 @@
     </script>
   </head>
   <body ng-controller="appController as app">
+    <section class="navigation">
+      <div class="nav-container">
+        <div class="logo">
+          <a href="#">NO EDITS</a>
+        </div>
+        <nav>
+          <div class="nav-mobile">
+            <a href="#" id="nav-toggle"><span></span></a>
+          </div>
+          <ul class="nav-list">
+            <li><a href="#">ADVENTURE</a></li>
+            <!-- snow reports, surf reports, destinations -->
+            <li><a href="#">CULTURE</a></li>
+            <li><a href="#" ng-click="app.toggleGear()">GEAR/TECH</a></li>
+            <li><a href="#">COMMUNITY</a>
+              <ul class="nav-dropdown">
+                <li><a href="#" ng-click="app.toggleQuotes()">INSPIRATION</a></li>
+                <li><a href="#" ng-click="app.togglePhotos()">GALLERY</a></li>
+                <li><a href="#" ng-click="app.toggleLineup()">LINEUP</a></li>
+                <li><a href="#">FORUM</a></li>
+              </ul>
+            </li>
+            <!-- members -->
+            <li><a href="#">ACCOUNT</a>
+              <ul class="nav-dropdown">
+                <li><a href="#">LOGIN</a></li>
+                <li><a href="#">JOIN</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
 
     <header>
       <div class="background-image">
-        <img id="climb" src="assets/rope.jpg"/>
+        <!-- <img id="climb" src="assets/rope.jpg"/> -->
       </div>
       <div class="header-text">
         <h1>NO EDITS</h1>
       </div>
-      <nav class="nav-main">
-        <ul>
-          <li><a href="#">ADVENTURE</a></li>
-          <!-- snow reports, surf reports, destinations -->
-          <li><a href="#">CULTURE</a></li>
-          <li><a href="#" ng-click="app.toggleGear()">GEAR/TECH</a></li>
-          <!-- post gear reviews -->
-          <li><a href="#" ng-click="app.toggleQuotes()">INSPIRATION</a></li>
-          <!-- post quotes -->
-          <li><a href="#" ng-click="app.togglePhotos()">GALLERY</a></li>
-          <!-- photos -->
-          <li><a href="#" ng-click="app.toggleLineup()">LINEUP</a></li>
-          <!-- members -->
-          <li><a href="#">FORUM</a></li>
-          <li><a href="#">LOGIN</a></li>
-          <li><a href="#">JOIN</a></li>
-        </ul>
-      </nav>
+
+
     </header>
 
 
