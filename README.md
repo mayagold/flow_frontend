@@ -50,7 +50,7 @@ https://noedits.herokuapp.com
 
 ##### NO EDITS
 
-This site was inspired by the fact that most images of women in the media are heavily edited, filtered, posed, and created for the male gaze. This is true about the general media but even more true about women in action sports. Google "girl snowboarding" and you're far more likely to see an image of a girl in a bikini than one of a girl hucking a flip off a park jump. But in real life, a lot of girls ride park, and very few actually pose for sexy pictures at home with their snowboard. This website is intended to provide media content featuring women portrayed in action, directed toward women who are passionate about solo adventure and adrenaline sports, including, but not limited to: skiing, snowboarding, surfing, climbing, skating, mountain biking, skydiving, SCUBA diving... there is no limit.
+This site (and especially its title) was inspired by the fact that most images of women in the media are heavily edited, filtered, posed, and created for the male gaze. This is true about the general media but even more true about women in action sports. Google "girl snowboarding" and you're far more likely to see an image of a girl in a bikini than one of a girl hucking a flip off a park jump. But in real life, a lot of girls ride park, and very few actually pose for sexy pictures at home with their snowboard. This website is intended to provide media content featuring women portrayed in action, directed toward women who are passionate about solo adventure and adrenaline sports, including, but not limited to: skiing, snowboarding, surfing, climbing, skating, mountain biking, skydiving, SCUBA diving... there is no limit.
 
 ##### User Stories
 
