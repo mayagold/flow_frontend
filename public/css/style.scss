@@ -1,4 +1,6 @@
+////////////////
 // VARIABLES
+////////////////
 
 // colors
 $fh-lime : #C8E462;
@@ -11,9 +13,10 @@ $fh-white: whitesmoke;
 $fh-coal : #374341;
 $fh-orange: #F09900;
 
+// misc
 $featured-image-width: 100%;
 $footer-height: 50px;
-$a-decor : none;
+$a-decor: none;
 
 // navigation
 $content-width: 1000px;
@@ -24,13 +27,14 @@ $nav-font-color: $fh-lime;
 $link-hover-color: $fh-pink;
 
 
-// BODY STYLING
+////////////////
+// Nav bar styling
+////////////////
 
 .navigation {
   height: $nav-height;
   background: $nav-background;
 }
-
 .logo {
   position: absolute;
   padding-left: 20px;
@@ -45,12 +49,10 @@ $link-hover-color: $fh-pink;
     text-decoration: none;
   }
 }
-
 .nav-container {
   max-width: $content-width;
   margin: 0 auto;
 }
-
 nav {
   float: right;
   ul {
@@ -87,8 +89,7 @@ nav {
     }
   }
 }
-
-// Dropdown list binds to JS toggle event
+// Dropdown list: bound to JS toggle event
 .nav-dropdown {
   position: absolute;
   display: none;
@@ -96,9 +97,8 @@ nav {
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Mobile navigation */
-
-// Binds to JS Toggle
+// Mobile Nav Bar
+// bound to JS Toggle
 .nav-mobile {
   display: none;
   position: absolute;
@@ -109,7 +109,7 @@ nav {
   width: $nav-height;
 }
 @media only screen and (max-width: $breakpoint) {
-  // Hamburger nav visible on mobile only
+  // Hamburger nav icon: visible on mobile only
   .nav-mobile {
     display: block;
   }
@@ -195,8 +195,35 @@ nav {
   }
 }
 
+////////////////
+// Form Styling
+////////////////
+
 form {
   max-width: 50%;
+}
+
+////////////////
+// Body Styling
+////////////////
+
+// slideshow
+
+#slideshow {
+    margin: 50px auto;
+    position: relative;
+    width: 240px;
+    height: 240px;
+    padding: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+#slideshow > div {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
 }
 
 body {
@@ -206,8 +233,7 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-
-  .climb {
+  .climb {  // home page image - may change
     max-width: 50%;
     margin: 0 auto;
   }
@@ -225,8 +251,6 @@ body {
       font-size: 2em;
     }
   }
-
-
 
   .quotes {
     background: $fh-white;

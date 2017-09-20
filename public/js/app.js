@@ -5,8 +5,23 @@ var app = angular.module('flow-app', []);
 // JQUERY
 ////////////////////////////////////////////////
 
-
 (function($) { // Begin jQuery
+
+  // slideshow
+  let slideshow = () => {
+    setInterval(function() {
+      $("#slideshow > div:gt(0)").hide()
+      $('#slideshow > div:first')
+      .fadeOut(3000)
+      .next()
+      .fadeIn(3000)
+      .end()
+      .appendTo('#slideshow');
+    },  6000);
+  }
+    slideshow();
+
+
   $(function() { // DOM ready
     // If a link has a dropdown, add sub menu toggle.
     $('nav ul li a:not(:only-child)').click(function(e) {
@@ -29,7 +44,6 @@ var app = angular.module('flow-app', []);
     });
   }); // end DOM ready
 })(jQuery); // end jQuery
-
 
 
 ////////////////////////////////////////////////
