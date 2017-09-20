@@ -238,6 +238,17 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
       self.gear.splice(index,1);
     }).catch(err=>console.log(err))
   }
+  $scope.deleteProfile = function(member){
+    $scope.currentMember = member;
+    let id = $scope.currentMember.id;
+    let index = self.gear.indexOf($scope.currentMember);
+    $http({
+      method: 'DELETE',
+      url: self.url + '/members/' + id,
+    }).then(response=>{
+      self.members.splice(index,1);
+    }).catch(err=>console.log(err))
+  }
 
 
   ////////////////

@@ -184,6 +184,10 @@
         </div>
       </div>
 
+      <!--  -->
+      <!-- Photos -->
+      <!--  -->
+
       <div class="gear" ng-show=app.showGear==true>
         <h1>Post new gear review</h1>
         <form ng-submit="app.postGearReview(newGear)">
@@ -210,6 +214,10 @@
         </div>
       </div>
 
+      <!--  -->
+      <!-- Profiles -->
+      <!--  -->
+
       <div class="lineup" ng-show=app.showMembers==true>
         <h1>Create your NoEdits profile</h1>
         <form ng-submit="app.postToLineup(newProfile)">
@@ -227,8 +235,8 @@
               {{member.name}}<br/>{{member.location}}<br/>
               {{member.sports}}<br/>{{member.goals}}
               <div class="yours" ng-show="app.user.id==member.user_id">
-                <a href="#" ng-click="deleteProfile(profile);">Delete</a>
-                <a href="#" ng-click="editProfile(profile);">Edit</a>
+                <a href="#" ng-click="deleteProfile(member);">Delete</a>
+                <a href="#" ng-click="editProfile(member);">Edit</a>
               </div>
             </li>
           </ul>
