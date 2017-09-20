@@ -170,7 +170,7 @@ body {
   width: 100%;
   margin: 0;
   padding: 0; }
-  body #slideshow {
+  body .homepage-image {
     margin: 50px auto;
     position: relative;
     width: 500px;
@@ -178,21 +178,21 @@ body {
     padding: 20px;
     z-index: -10;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
-    body #slideshow div {
+    body .homepage-image div {
       position: absolute;
       top: 10px;
       left: 10px;
       right: 10px;
       bottom: 10px; }
   @media only screen and (max-width: 800px) {
-    body #slideshow {
+    body .homepage-image {
       margin: 50px auto;
       position: relative;
       width: 240px;
       height: 240px;
       padding: 10px;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); }
-      body #slideshow div {
+      body .homepage-image div {
         position: absolute;
         top: 10px;
         left: 10px;

@@ -35,7 +35,7 @@
     <section class="navigation">
       <div class="nav-container">
         <div class="logo">
-          <a href="#">NO EDITS</a>
+          <a href="#" ng-click="app.toggleHomepage()">NO EDITS</a>
         </div>
         <nav>
           <!-- DIV FOR MOBILE NAV BAR -->
@@ -104,31 +104,31 @@
           </div>
         </div>
 
-        <div class="homepage-text">
-          <!-- <h1>LOG IN</h1> -->
-        </div>
         <form class="form-container" ng-submit="app.login(userPass)">
           <label><span>Username</span><input type="text" ng-model="userPass.username" placeholder="____________________________"/></label>
           <br/>
           <label><span>Password</span><input type="password" ng-model="userPass.password" placeholder="____________________________"/></label>
           <br/>
-          <input type="SUBMIT" value="LOG IN"/>
+          <input type="SUBMIT" value="LOG IN"/><br/>
+          <a href="#" ng-click="app.toggleRegister()">NEW? JOIN THE CREW</a>
         </form>
       </header>
 
 
-      <!-- User Auth Forms -->
-      <div class="register" ng-show="app.register==true">
-        <div class="homepage-image">
-          <img class="climb" src="assets/rope.jpg"/>
+      <!-- User Auth Forms --><div class="registerpage" ng-show="app.register==true">
+
+      <div class="homepage-image" >
+        <div class="">
+          <img id="register-image" src="assets/rope.jpg" style="width:100%"/>
         </div>
         <div class="homepage-text">
         </div>
-        <form class="form-container" ng-submit="app.registerUser(userReg)">
-          <label><span>Username</span><input type="text" ng-model="userReg.username" placeholder="create username"/></label><br/>
-          <label><span>Username</span><input type="password" ng-model="userReg.password" placeholder="create password"/></label><br/>
-          <input type="submit" VALUE="JOIN US"/>
-        </form>
+      </div>
+      <form class="form-container" ng-submit="app.registerUser(userReg)" style="text-align:center">
+        <label><span>Username</span><input type="text" ng-model="userReg.username" placeholder="create username"/></label><br/>
+        <label><span>Password</span><input type="password" ng-model="userReg.password" placeholder="create password"/></label><br/>
+        <input type="submit" VALUE="JOIN US"/>
+      </form>
       </div>
 
       <!--  -->
