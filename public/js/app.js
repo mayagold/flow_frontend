@@ -207,7 +207,6 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
   ////////////////
   $scope.deleteQuote = function(quote){
     $scope.currentQuote = quote;
-    console.log();
     let id = $scope.currentQuote.id;
     let index = self.quotes.indexOf($scope.currentQuote);
     $http({
@@ -217,7 +216,17 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
       self.quotes.splice(index,1);
     }).catch(err=>console.log(err))
   }
-
+  $scope.deletePhoto = function(photo){
+    $scope.currentPhoto = photo;
+    let id = $scope.currentPhoto.id;
+    let index = self.photos.indexOf($scope.currentPhoto);
+    $http({
+      method: 'DELETE',
+      url: self.url + '/photos/' + id,
+    }).then(response=>{
+      self.photos.splice(index,1);
+    }).catch(err=>console.log(err))
+  }
 
 
   ////////////////
