@@ -55,7 +55,7 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
 
   console.log('hi');
 
-  this.url = 'http://localhost:3000';
+  this.url = 'https://noedits-api.herokuapp.com';
   var self = this;
   this.user = {};
   this.users = [];
