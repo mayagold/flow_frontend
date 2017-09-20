@@ -186,16 +186,16 @@
 
         <div class="photosContainer">
           <div class="image-container" ng-repeat="photo in app.photos">
-              <img class="posted-photo" src="{{photo.url}}" alt=""  onclick="onClick(this)" >
-              <div class="photo-info" style="display:none">
-                {{photo.title}}<br/>{{photo.subject}}<br/>
-                {{photo.caption}}
+              <img class="posted-photo" src="{{photo.url}}" alt=""  onclick="onClick(this)" ng-mouseover="hovering=true" ng-mouseleave="hovering=false">
+              <div class="photo-info" style="text-align:center" ng-show="hovering==true">
+                <span style="text-transform:uppercase">{{photo.title}}</span>
+                {{photo.caption}}<br/><small style="text-transform:uppercase">{{photo.subject}}</small>
               </div>
-          </div>
-          <div class="yours" ng-show="app.user.id==photo.user_id">
+              <div class="yours" ng-show="app.user.id==photo.user_id">
                 <p>You posted this photo.</p>
                 <a href="#" ng-click="deletePhoto(photo);">Delete</a>
                 <a href="#" ng-click="editPhoto(photo);">Edit</a>
+              </div>
           </div>
         </div>
       </div>

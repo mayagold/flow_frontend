@@ -161,8 +161,6 @@ body {
   width: 100%;
   margin: 0;
   padding: 0; }
-  body .posted-photo:hover {
-    cursor: pointer; }
   body #slideshow {
     margin: 50px auto;
     position: relative;
@@ -235,15 +233,24 @@ body {
   body .yours {
     color: #EA0034;
     font-weight: bold;
-    text-transform: capitalize; }
+    text-transform: capitalize;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1004;
+    width: 300px;
+    margin-left: 16px;
+    margin-top: -319px; }
   body .quotes {
     background: whitesmoke;
     color: #374341;
     margin-bottom: 80px; }
-    body .quotes .image-container {
+    body .quotes .quotesContainer {
       padding: 0 0 0; }
-      body .quotes .image-container li {
-        display: block; }
+      body .quotes .quotesContainer ul {
+        display: block;
+        list-style: none; }
+        body .quotes .quotesContainer ul li {
+          display: block; }
     body .quotes h1 {
       text-align: right;
       font-size: 20px;
@@ -256,7 +263,7 @@ body {
     body .quotes blockquote {
       display: block;
       background: whitesmoke;
-      padding: 15px 20px 15px 40px;
+      padding: 15px 40px 15px 40px;
       margin: 0 20px 20px 20px;
       position: relative;
       line-height: 1.2;
@@ -293,17 +300,31 @@ body {
     flex-wrap: wrap; }
     body .photos .photosContainer .image-container {
       width: 30%;
-      margin: 10px auto;
-      padding: 10px; }
+      margin: 20px;
+      padding: 0; }
       body .photos .photosContainer .image-container * {
         display: block; }
     body .photos .photosContainer .posted-photo {
-      max-width: 100%;
-      border: 1px solid #374341;
-      padding: 2px;
-      background: whitesmoke;
-      border-radius: 5px;
-      color: black; }
+      object-fit: cover;
+      border-radius: 2px;
+      display: inline-block;
+      height: 300px;
+      margin: 1rem;
+      position: relative;
+      width: 300px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      transition: all 0.3s cubic-bezier(0.5, 0.8, 0.5, 1); }
+    body .photos .photosContainer .posted-photo:hover {
+      cursor: pointer;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+    body .photos .photosContainer .photo-info {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.3);
+      color: whitesmoke;
+      z-index: 1004;
+      width: 300px;
+      margin-left: 16px;
+      margin-top: -120px; }
   body input {
     border: none;
     outline: none;

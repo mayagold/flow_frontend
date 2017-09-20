@@ -233,9 +233,7 @@ form {
 
 body {
 
-  .posted-photo:hover{
-    cursor: pointer;
-  }
+
 
   #slideshow {
     margin: 50px auto;
@@ -337,15 +335,26 @@ body {
     color: $fh-pink;
     font-weight: bold;
     text-transform: capitalize;
+    position: absolute;
+    background: rgba(0,0,0,.3);
+    z-index: 1004;
+    width: 300px;
+    margin-left: 16px;
+    margin-top: -319px;
   }
   .quotes {
     background: $fh-white;
     color: $fh-coal;
     margin-bottom: 80px;
-    .image-container {
+    .quotesContainer {
       padding: 0 0 0;
-      li {
+      ul {
         display: block;
+        list-style: none;
+
+        li {
+          display:block;
+        }
       }
     }
     h1 {
@@ -363,7 +372,7 @@ body {
     blockquote {
       display: block;
       background: $fh-white;
-      padding: 15px 20px 15px 40px;
+      padding: 15px 40px 15px 40px;
       margin: 0 20px 20px 20px;
       position: relative;
       line-height: 1.2;
@@ -434,19 +443,36 @@ body {
       flex-wrap: wrap;
       .image-container {
         width: 30%;
-        margin: 10px auto;
-        padding: 10px;
+        margin: 20px;
+        padding: 0;
         * {
           display: block;
         }
       }
       .posted-photo {
-        max-width: 100%;
-        border: 1px solid $fh-coal;
-        padding: 2px;
-        background: $fh-white;
-        border-radius: 5px;
-        color: black;
+        object-fit: cover;
+        border-radius: 2px;
+        display: inline-block;
+        height: 300px;
+        margin: 1rem;
+        position: relative;
+        width: 300px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        transition: all 0.3s cubic-bezier(.5,.8,.5,1);
+      }
+      .posted-photo:hover{
+        cursor: pointer;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+      }
+      .photo-info {
+        position: absolute;
+        background: rgba(0,0,0,.3);
+        color: $fh-white;
+        z-index: 1004;
+        width: 300px;
+        margin-left: 16px;
+        margin-top: -120px;
+
       }
     }
   }
