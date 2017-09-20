@@ -27,6 +27,20 @@ $nav-font-color: $fh-lime;
 $link-hover-color: $fh-pink;
 
 
+.hidden {
+  display: none;
+}
+
+.image-modal {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transform: scale(0);
+  z-index: 1001;
+}
+
 ////////////////
 // Nav bar styling
 ////////////////
@@ -219,6 +233,10 @@ form {
 
 body {
 
+  .posted-photo:hover{
+    cursor: pointer;
+  }
+
   #slideshow {
     margin: 50px auto;
     position: relative;
@@ -324,7 +342,7 @@ body {
     background: $fh-white;
     color: $fh-coal;
     margin-bottom: 80px;
-    ul {
+    .image-container {
       padding: 0 0 0;
       li {
         display: block;
@@ -414,11 +432,11 @@ body {
       -webkit-justify-content: space-around;
       justify-content: space-around;
       flex-wrap: wrap;
-      ul {
+      .image-container {
         width: 30%;
         margin: 10px auto;
         padding: 10px;
-        li {
+        * {
           display: block;
         }
       }

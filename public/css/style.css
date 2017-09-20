@@ -1,4 +1,16 @@
 @charset "UTF-8";
+.hidden {
+  display: none; }
+
+.image-modal {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transform: scale(0);
+  z-index: 1001; }
+
 .navigation {
   height: 70px;
   background: #374341;
@@ -149,6 +161,8 @@ body {
   width: 100%;
   margin: 0;
   padding: 0; }
+  body .posted-photo:hover {
+    cursor: pointer; }
   body #slideshow {
     margin: 50px auto;
     position: relative;
@@ -226,9 +240,9 @@ body {
     background: whitesmoke;
     color: #374341;
     margin-bottom: 80px; }
-    body .quotes ul {
+    body .quotes .image-container {
       padding: 0 0 0; }
-      body .quotes ul li {
+      body .quotes .image-container li {
         display: block; }
     body .quotes h1 {
       text-align: right;
@@ -277,11 +291,11 @@ body {
     -webkit-justify-content: space-around;
     justify-content: space-around;
     flex-wrap: wrap; }
-    body .photos .photosContainer ul {
+    body .photos .photosContainer .image-container {
       width: 30%;
       margin: 10px auto;
       padding: 10px; }
-      body .photos .photosContainer ul li {
+      body .photos .photosContainer .image-container * {
         display: block; }
     body .photos .photosContainer .posted-photo {
       max-width: 100%;

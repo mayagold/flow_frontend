@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)http://api.jquery.com/attr/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>attr demo</title>
+  <style>
+  em {
+    color: blue;
+    font-weight: bold;
+  }
+  div {
+    color: red;
+  }
+  </style>
+  <script src="./jquery-1.10.2.js"></script>
+<style>html, body { border:0; margin:0; padding:0; }body { font-family: 'Helvetica', 'Arial',  'Verdana', 'sans-serif'; }</style></head>
+<body style="">
+ 
+<p>Once there was a <em title="huge, gigantic">large</em> dinosaur...</p>
+ 
+The title of the emphasis is:<div>huge, gigantic</div>
+ 
+<script>window.onload = function() {
+var title = $( "em" ).attr( "title" );
+$( "div" ).text( title );
+};</script>
+ 
+
+</body></html>

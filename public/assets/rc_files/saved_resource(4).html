@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)http://api.jquery.com/attr/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>attr demo</title>
+  <script src="./jquery-1.10.2.js"></script>
+<style>html, body { border:0; margin:0; padding:0; }body { font-family: 'Helvetica', 'Arial',  'Verdana', 'sans-serif'; }</style></head>
+<body style="">
+ 
+<img title="hat.gif" src="./hat.gif">
+ 
+<script>window.onload = function() {
+$( "img" ).attr( "src", function() {
+  return "/resources/" + this.title;
+});
+};</script>
+ 
+
+</body></html>

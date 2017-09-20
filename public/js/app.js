@@ -1,11 +1,18 @@
 var app = angular.module('flow-app', []);
 
+// Show Modal Image
+function onClick(element) {
+  document.getElementById("img").src = element.src;
+  document.querySelector(".photo-info").style.display = "block";
+}
 
 ////////////////////////////////////////////////
 // JQUERY
 ////////////////////////////////////////////////
 
 (function($) { // Begin jQuery
+  // photo modal
+
   // slideshow
   let slideshow = () => {
     setInterval(function() {

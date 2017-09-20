@@ -185,18 +185,31 @@
         </div>
 
         <div class="photosContainer">
-          <ul ng-repeat="photo in app.photos">
-            <li>
-              <img class="posted-photo" src="{{photo.url}}" alt="">
-              <!-- {{photo.title}} {{photo.subject}}
-              {{photo.caption}} -->
-              <div class="yours" ng-show="app.user.id==photo.user_id">
+          <div class="image-container" ng-repeat="photo in app.photos">
+              <img class="posted-photo" src="{{photo.url}}" alt=""  onclick="onClick(this)" >
+              <div class="photo-info" style="display:none">
+                {{photo.title}}<br/>{{photo.subject}}<br/>
+                {{photo.caption}}
+              </div>
+          </div>
+          <div class="yours" ng-show="app.user.id==photo.user_id">
                 <p>You posted this photo.</p>
                 <a href="#" ng-click="deletePhoto(photo);">Delete</a>
                 <a href="#" ng-click="editPhoto(photo);">Edit</a>
-              </div>
-            </li>
-          </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal for full scrn images on click -->
+      <div id="image-modal" onclick="this.style.display='none'">
+        <span class="close-button">x</span>
+        <div class="image-full-screen">
+          <img src="" alt="" id="img" style="max-width:100%">
+        </div>
+        <div class="image-info">
+          <h5 id="image-title"></h5>
+          <h5 id="image-caption"></h5>
+          <h5 id="image-sport"></h5>
         </div>
       </div>
 

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)http://api.jquery.com/attr/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>attr demo</title>
+  <style>
+  img {
+    padding: 10px;
+  }
+  div {
+    color: red;
+    font-size: 24px;
+  }
+  </style>
+  <script src="./jquery-1.10.2.js"></script>
+<style>html, body { border:0; margin:0; padding:0; }body { font-family: 'Helvetica', 'Arial',  'Verdana', 'sans-serif'; }</style></head>
+<body style="">
+ 
+<img src="./hat.gif" title="jQuery" alt="jQuery Logo">
+<img src="./hat.gif" title="jQuery" alt="jQuery Logo">
+<img src="./hat.gif" title="jQuery" alt="jQuery Logo">
+ 
+<div>jQuery Logo</div>
+ 
+<script>window.onload = function() {
+$( "img" ).attr({
+  src: "/resources/hat.gif",
+  title: "jQuery",
+  alt: "jQuery Logo"
+});
+$( "div" ).text( $( "img" ).attr( "alt" ) );
+};</script>
+ 
+
+</body></html>

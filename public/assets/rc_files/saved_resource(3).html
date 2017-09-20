@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)http://api.jquery.com/attr/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>attr demo</title>
+  <style>
+  div {
+    color: blue;
+  }
+  span {
+    color: red;
+  }
+  b {
+    font-weight: bolder;
+  }
+  </style>
+  <script src="./jquery-1.10.2.js"></script>
+<style>html, body { border:0; margin:0; padding:0; }body { font-family: 'Helvetica', 'Arial',  'Verdana', 'sans-serif'; }</style></head>
+<body style="">
+ 
+<div id="div-id0">Zero-th <span>(id = '<b>div-id0</b>')</span></div>
+<div id="div-id1">First <span>(id = '<b>div-id1</b>')</span></div>
+<div id="div-id2">Second <span>(id = '<b>div-id2</b>')</span></div>
+ 
+<script>window.onload = function() {
+$( "div" )
+  .attr( "id", function( arr ) {
+    return "div-id" + arr;
+  })
+  .each(function() {
+    $( "span", this ).html( "(id = '<b>" + this.id + "</b>')" );
+});
+};</script>
+ 
+
+</body></html>
