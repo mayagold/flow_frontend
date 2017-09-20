@@ -266,6 +266,42 @@ body {
     margin: 0 auto;
   }
 
+  .wrap {
+    text-align: center;
+    .content {
+      padding: 20px;
+      text-align: center;
+      margin: 10px 20px 20px auto;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      border-left: 15px solid $fh-lime;
+      border-right: 2px solid $fh-lime;
+      -moz-box-shadow: 2px 2px 15px #ccc;
+      -webkit-box-shadow: 2px 2px 15px #ccc;
+      box-shadow: 2px 2px 15px #ccc;    }
+    input {
+      position: relative;
+      z-index: 10;
+      margin: 2px;
+      padding: 0 5px;
+      width: 225px;
+      height: 30px;
+      border: none;
+    }
+    .submit {
+      color: $fh-coal;
+    }
+    .submit:hover{
+      background: $fh-lime;
+    }
+    input:focus {
+      z-index: 15;
+      box-shadow: 0 0 10px rgba(0,0,0,.2);
+      border-radius:3px;
+      outline: 0;
+    }
+  }
+
   .homepage, .register {
     width: 90%;
     max-height: 60%;
@@ -287,30 +323,81 @@ body {
   .quotes {
     background: $fh-white;
     color: $fh-coal;
-    .quotesContainer{
-      display: flex;
-      display: -webkit-flex;
-      -webkit-flex-direction: row;
-      flex-direction: row;
-      -webkit-align-items: stretch;
-      align-items: stretch;
-      align-content: flex-start;
-      -webkit-justify-content: flex-start;
-      justify-content:flex-start;
-      flex-wrap: wrap;
-      ul {
-        max-width: 40%;
-        text-transform: uppercase;
-        background: $fh-white;
-        margin: 15px;
-        font-size: 18px;
-        padding: 10px;
-        color: $fh-coal;
-        * {
-          display: block;
-        }
+    margin-bottom: 80px;
+    ul {
+      padding: 0 0 0;
+      li {
+        display: block;
       }
     }
+    h1 {
+      text-align: right;
+      font-size: 20px;
+      padding-right: 20px;
+    }
+    #post-quote-header {
+      text-decoration: none;
+      color: $fh-coal;
+    }
+    #post-quote-header:hover{
+      color: $fh-pink;
+    }
+    blockquote {
+      display: block;
+      background: $fh-white;
+      padding: 15px 20px 15px 40px;
+      margin: 0 20px 20px 20px;
+      position: relative;
+      line-height: 1.2;
+      color: $fh-coal;
+      text-align: justify;
+      border-left: 15px solid $fh-orange;
+      border-right: 2px solid $fh-orange;
+      -moz-box-shadow: 2px 2px 15px #ccc;
+      -webkit-box-shadow: 2px 2px 15px #ccc;
+      box-shadow: 2px 2px 15px #ccc;
+    }
+    blockquote::before{
+      content: "\201C";
+      font-family: Georgia, serif;
+      font-size: 60px;
+      font-weight: bold;
+      color: $fh-coal;
+      position: absolute;
+      left: 10px;
+      top: 5px;
+    }
+    blockquote::after{
+      content:""
+    }
+    blockquote small{
+      font-weight: bold;
+    }
+
+    // .quotesContainer{
+    //   display: flex;
+    //   display: -webkit-flex;
+    //   -webkit-flex-direction: row;
+    //   flex-direction: row;
+    //   -webkit-align-items: stretch;
+    //   align-items: stretch;
+    //   align-content: flex-start;
+    //   -webkit-justify-content: flex-start;
+    //   justify-content:flex-start;
+    //   flex-wrap: wrap;
+    //   ul {
+    //     max-width: 40%;
+    //     text-transform: uppercase;
+    //     background: $fh-white;
+    //     margin: 15px;
+    //     font-size: 18px;
+    //     padding: 10px;
+    //     color: $fh-coal;
+    //     * {
+    //       display: block;
+    //     }
+    //   }
+    // }
   }
 
   .photos {

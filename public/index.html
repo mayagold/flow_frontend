@@ -136,15 +136,26 @@
       <!--  -->
 
       <div class="quotes" ng-show="app.showQuotes==true">
-        <h1>Post new quote</h1>
-        <form ng-submit="app.postQuote(newQuote)">
-          <input type="text" ng-model="newQuote.author" placeholder="author"/>
-          <input type="text" ng-model="newQuote.content" placeholder="quote"/>
-          <input type="submit"/>
-        </form>
+        <h1 ><a id="post-quote-header" href="#" ng-click="showCreateQuoteForm=true">Post new quote</a></h1>
+
+        <div class="wrap" ng-show="showCreateQuoteForm==true">
+          <form class="content" ng-submit="app.postQuote(newQuote)">
+            <input type="text" ng-model="newQuote.author" placeholder="author"/>
+            <input type="text" ng-model="newQuote.content" placeholder="quote"/>
+            <input class="submit" type="submit"/>
+          </form>
+          <a href="#" ng-click="showCreateQuoteForm=false">Close</a>
+        </div>
+
         <div class="quotesContainer">
           <ul ng-repeat="quote in app.quotes">
-            <li><p>"{{quote.content}}"</p> - {{quote.author}}
+            <li>
+
+              <blockquote>
+                <p>"{{quote.content}}"</p>
+                <small>{{quote.author}}</small>
+              </blockquote>
+
               <div class="yours" ng-show="app.user.id==quote.user_id">
                 <p>You posted this quote.</p>
                 <a href="#" ng-click="deleteQuote(quote);">Delete</a>
@@ -160,14 +171,19 @@
       <!--  -->
 
       <div class="photos" ng-show=app.showPhotos==true>
-        <h1>Post new photo</h1>
-        <form ng-submit="app.postPhoto(newPhoto)">
-          <input type="text" ng-model="newPhoto.url" placeholder="url"/>
-          <input type="text" ng-model="newPhoto.title" placeholder="title"/>
-          <input type="text" ng-model="newPhoto.subject" placeholder="subject"/>
-          <input type="text" ng-model="newPhoto.caption" placeholder="caption"/>
-          <input type="submit"/>
-        </form>
+        <h1><a href="#" ng-click="showCreatePhotoForm=true">Post new photo</a></h1>
+
+        <div class="wrap" ng-show="showCreatePhotoForm==true">
+          <form class="content" ng-submit="app.postPhoto(newPhoto)">
+            <input type="text" ng-model="newPhoto.url" placeholder="url"/>
+            <input type="text" ng-model="newPhoto.title" placeholder="title"/>
+            <input type="text" ng-model="newPhoto.subject" placeholder="subject"/>
+            <input type="text" ng-model="newPhoto.caption" placeholder="caption"/>
+            <input class="submit" type="submit"/>
+          </form>
+          <a href="#" ng-click="showCreatePhotoForm=false">Close</a>
+        </div>
+
         <div class="photosContainer">
           <ul ng-repeat="photo in app.photos">
             <li>
@@ -185,19 +201,24 @@
       </div>
 
       <!--  -->
-      <!-- Photos -->
+      <!-- Gear -->
       <!--  -->
 
       <div class="gear" ng-show=app.showGear==true>
-        <h1>Post new gear review</h1>
-        <form ng-submit="app.postGearReview(newGear)">
-          <input type="text" ng-model="newGear.name" placeholder="name"/>
-          <input type="text" ng-model="newGear.image_url" placeholder="image url"/>
-          <input type="text" ng-model="newGear.brand" placeholder="brand"/>
-          <input type="text" ng-model="newGear.sport" placeholder="sport"/>
-          <input type="text" ng-model="newGear.review" placeholder="review"/>
-          <input type="submit"/>
-        </form>
+        <h1><a href="#" ng-click="showCreateGearForm=true">Post new gear review</a></h1>
+
+        <div class="wrap" ng-show="showCreateGearForm==true">
+          <form class="content" ng-submit="app.postGearReview(newGear)">
+            <input type="text" ng-model="newGear.name" placeholder="name"/>
+            <input type="text" ng-model="newGear.image_url" placeholder="image url"/>
+            <input type="text" ng-model="newGear.brand" placeholder="brand"/>
+            <input type="text" ng-model="newGear.sport" placeholder="sport"/>
+            <input type="text" ng-model="newGear.review" placeholder="review"/>
+            <input class="submit" type="submit"/>
+          </form>
+          <a href="#" ng-click="showCreateGearForm=false">Close</a>
+        </div>
+
         <div class="gearContainer">
           <ul ng-repeat="gear in app.gear">
             <li>
@@ -219,15 +240,21 @@
       <!--  -->
 
       <div class="lineup" ng-show=app.showMembers==true>
-        <h1>Create your NoEdits profile</h1>
-        <form ng-submit="app.postToLineup(newProfile)">
-          <input type="text" ng-model="newProfile.name" placeholder="name"/>
-          <input type="text" ng-model="newProfile.location" placeholder="Where are you based?"/>
-          <input type="text" ng-model="newProfile.sports" placeholder="Your sport(s)"/>
-          <input type="text" ng-model="newProfile.goals" placeholder="What are you working on?"/>
-          <input type="text" ng-model="newProfile.photo" placeholder="profile picture url"/>
-          <input type="submit"/>
-        </form>
+        <h1><a href="#" ng-click="showCreateProfileForm=true">Create your NO EDITS profile</a></h1>
+
+        <div class="wrap" ng-show="showCreateProfileForm==true">
+          <form class="content" ng-submit="app.postToLineup(newProfile)">
+            <input type="text" ng-model="newProfile.name" placeholder="name"/>
+            <input type="text" ng-model="newProfile.location" placeholder="Where are you based?"/>
+            <input type="text" ng-model="newProfile.sports" placeholder="Your sport(s)"/>
+            <input type="text" ng-model="newProfile.goals" placeholder="What are you working on?"/>
+            <input type="text" ng-model="newProfile.photo" placeholder="profile picture url"/>
+            <input class="submit" type="submit"/>
+            <a href="#" ng-click="showCreateProfileForm=false">Close</a>
+          </form>
+        </div>
+
+
         <div class="profilesContainer">
           <ul ng-repeat="member in app.members">
             <li>
@@ -242,15 +269,14 @@
           </ul>
         </div>
       </div>
-
-
-
     </div>
-
   </body>
+
+  <!--  -->
+  <!-- Footer -->
+  <!--  -->
 
   <footer>
     <p ng-show="app.user.username">{{ app.user.username }}, you are logged in. <a id="logout" href="#" ng-click="app.logout()">click to Log Out</a></p>
-
   </footer>
 </html>
