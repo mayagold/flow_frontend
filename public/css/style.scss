@@ -452,17 +452,19 @@ body {
     margin: 0 auto;
     @media only screen and (max-width: $breakpoint) {
       margin-top: 50px;
+      margin-bottom: 80px;
       margin-left: 20px;
       position: relative;
       display: block;
     }
     h1 {
-      text-align: left;
+      text-align: right;
       margin-right: 20px;
     }
     #photo-header {
       font-size: 20px;
-      text-align: left;
+      text-align: right;
+      margin-right: 20px;
       color: $fh-pink;
       text-decoration: none;
     }
@@ -470,7 +472,7 @@ body {
       color: $fh-orange;
     }
     .gallery {
-      margin: 0 auto;
+      margin: 0 auto 80px;
       padding: 20px auto 80px;
       display: flex;
       display: -webkit-flex;

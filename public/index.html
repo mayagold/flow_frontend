@@ -235,7 +235,7 @@
         <div class="gearContainer">
           <ul ng-repeat="gear in app.gear">
             <li>
-              <img class="posted-gear" src="{{gear.image_url}}" alt="">
+              <img src="{{gear.image_url}}" alt=""/>
               {{gear.name}}<br/>{{gear.brand}}<br/>
               {{gear.review}}<small>{{gear.sport}}</small>
               <div class="yours" ng-show="app.user.id==gear.user_id">

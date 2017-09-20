@@ -7,7 +7,7 @@ var app = angular.module('flow-app', []);
 
 (function($) { // Begin jQuery
 
-  
+
   // photo modal
 
   // slideshow
@@ -190,7 +190,7 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
     $http({
       method: 'POST',
       url: self.url + '/gears',
-      data: { gear: { name: newGear.name, brand: newGear.brand, sport: newGear.sport, review: newGear.review, user_id: self.user.id, image_url: newGear.image_url }}
+      data: { gear: { name: newGear.name, brand: newGear.brand, sport: newGear.sport, review: newGear.review, image_url: newGear.image_url, user_id: self.user.id,}}
     }).then(response=>{
       self.gear.unshift(response.data);
       console.log(response);
