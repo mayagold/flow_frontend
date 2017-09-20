@@ -170,19 +170,19 @@
       <!-- Photos -->
       <!--  -->
 
+      <div class="wrap" ng-show="showCreatePhotoForm==true">
+        <form class="content" ng-submit="app.postPhoto(newPhoto)">
+          <input type="text" ng-model="newPhoto.url" placeholder="url"/>
+          <input type="text" ng-model="newPhoto.title" placeholder="title"/>
+          <input type="text" ng-model="newPhoto.subject" placeholder="subject"/>
+          <input type="text" ng-model="newPhoto.caption" placeholder="caption"/>
+          <input class="submit" type="submit"/>
+        </form>
+        <a href="#" ng-click="showCreatePhotoForm=false">Close</a>
+      </div>
       <div class="photos" ng-show=app.showPhotos==true>
-        <h1><a href="#" ng-click="showCreatePhotoForm=true">Post new photo</a></h1>
+        <h1><a id="photo-header" href="#" ng-click="showCreatePhotoForm=true">Post new photo</a></h1>
 
-        <div class="wrap" ng-show="showCreatePhotoForm==true">
-          <form class="content" ng-submit="app.postPhoto(newPhoto)">
-            <input type="text" ng-model="newPhoto.url" placeholder="url"/>
-            <input type="text" ng-model="newPhoto.title" placeholder="title"/>
-            <input type="text" ng-model="newPhoto.subject" placeholder="subject"/>
-            <input type="text" ng-model="newPhoto.caption" placeholder="caption"/>
-            <input class="submit" type="submit"/>
-          </form>
-          <a href="#" ng-click="showCreatePhotoForm=false">Close</a>
-        </div>
 
         <div class="photosContainer">
           <div class="image-container" ng-repeat="photo in app.photos">
@@ -201,7 +201,7 @@
       </div>
 
       <!-- Modal for full scrn images on click -->
-      <div id="image-modal" onclick="this.style.display='none'">
+      <!-- <div id="image-modal" onclick="this.style.display='none'">
         <span class="close-button">x</span>
         <div class="image-full-screen">
           <img src="" alt="" id="img" style="max-width:100%">
@@ -211,7 +211,7 @@
           <h5 id="image-caption"></h5>
           <h5 id="image-sport"></h5>
         </div>
-      </div>
+      </div> -->
 
       <!--  -->
       <!-- Gear -->
