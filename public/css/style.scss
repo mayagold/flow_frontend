@@ -252,6 +252,7 @@ body {
     height: 400px;
     padding: 20px;
     z-index: -10;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     div {
       position: absolute;
       top: 10px;
@@ -259,6 +260,7 @@ body {
       right: 10px;
       bottom: 10px;
       img {
+
       }
     }
   }
@@ -455,44 +457,51 @@ body {
       display: block;
     }
     h1 {
-      text-align: right;
+      text-align: left;
       margin-right: 20px;
     }
     #photo-header {
       font-size: 20px;
-      text-align: right;
+      text-align: left;
       color: $fh-pink;
       text-decoration: none;
     }
     #photo-header:hover {
       color: $fh-orange;
     }
-    .photosContainer {
-      padding: 20px 0 80px;
+    .gallery {
+      margin: 0 auto;
+      padding: 20px auto 80px;
       display: flex;
       display: -webkit-flex;
       -webkit-flex-direction: row;
       flex-direction: row;
-      -webkit-align-items: center;
-      align-items: center;
+      -webkit-align-items: stretch;
+      align-items: stretch;
       align-content: flex-start;
-      -webkit-justify-content: space-around;
-      justify-content: space-around;
+      -webkit-justify-content: center;
+      justify-content:center;
       flex-wrap: wrap;
+      }
       @media only screen and (max-width: $breakpoint) {
-        margin: 10px auto;
-        display: block;
-        padding: 0px;
-        z-index: 400;
+        .gallery {
+          margin: 10px auto;
+          display: block;
+          padding: 0px;
+          z-index: 400;
+        }
       }
       .image-container {
-        margin: 20px 0 0;
+        margin: 0 ;
         padding: 0;
-        @media only screen and (max-width: $breakpoint) {
-          margin: 0 auto;
-        }
         * {
           display: block;
+        }
+      }
+      @media only screen and (max-width: $breakpoint) {
+        .image-container{
+          margin: 0 auto;
+
         }
       }
       .posted-photo {
@@ -500,7 +509,7 @@ body {
         border-radius: 2px;
         display: inline-block;
         height: 300px;
-        margin: 0s;
+        margin: 2px;
         position: relative;
         width: 300px;
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -511,18 +520,16 @@ body {
           z-index: 500;
           border-radius: 2px;
           display: block;
-          width: 300px;
           max-height: 500px;
-          margin: 0 auto;
+          width: 90%;
           position: relative;
           padding: 0;
-          margin: 10px auto;
+          margin: 20px auto 80px;
         }
       }
       .posted-photo:hover{
         cursor: pointer;
         z-index: 400;
-
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
       }
       .photo-info {
@@ -531,8 +538,15 @@ body {
         color: $fh-white;
         z-index: 500;
         width: 300px;
-        margin-left: 34px;
         margin-top: -120px;
+        margin-left: 2px;
+      }
+      @media only screen and (max-width: $breakpoint) {
+        .photo-info {
+          margin: -200px auto auto 5%;
+          width: 90%;
+
+        }
       }
     }
   }
@@ -575,5 +589,3 @@ body {
       text-decoration: none;
     }
   }
-
-}

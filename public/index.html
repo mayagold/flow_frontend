@@ -184,7 +184,7 @@
         <h1><a id="photo-header" href="#" ng-click="showCreatePhotoForm=true">Post new photo</a></h1>
 
 
-        <div class="photosContainer">
+        <div class="gallery">
           <div class="image-container" ng-repeat="photo in app.photos">
               <img class="posted-photo" src="{{photo.url}}" alt=""  onclick="onClick(this)" ng-mouseover="hovering=true" ng-mouseleave="hovering=false">
               <div class="photo-info" style="text-align:center" ng-show="hovering==true">
