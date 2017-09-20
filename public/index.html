@@ -124,7 +124,7 @@
         </div>
         <div class="homepage-text">
         </div>
-        <form class="form-container" ng-submit="app.register(userReg)">
+        <form class="form-container" ng-submit="app.registerUser(userReg)">
           <label><span>Username</span><input type="text" ng-model="userReg.username" placeholder="create username"/></label><br/>
           <label><span>Username</span><input type="password" ng-model="userReg.password" placeholder="create password"/></label><br/>
           <input type="submit" VALUE="JOIN US"/>
@@ -200,7 +200,7 @@
               <img class="posted-gear" src="{{gear.image_url}}" alt="">
               {{gear.name}}<br/>{{gear.brand}}<br/>
               {{gear.review}}<small>{{gear.sport}}</small>
-              <div class="yours" ng-show="app.user.id==gear.user_id.to_i">
+              <div class="yours" ng-show="app.user.id==gear.user_id">
                 <p>You posted this gear review.</p>
                 <a href="#" ng-click="deleteGear(gear);">Delete</a>
                 <a href="#" ng-click="editGear(gear);">Edit</a>

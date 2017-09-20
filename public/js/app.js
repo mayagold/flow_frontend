@@ -227,6 +227,17 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
       self.photos.splice(index,1);
     }).catch(err=>console.log(err))
   }
+  $scope.deleteGear = function(gear){
+    $scope.currentGear = gear;
+    let id = $scope.currentGear.id;
+    let index = self.gear.indexOf($scope.currentGear);
+    $http({
+      method: 'DELETE',
+      url: self.url + '/gears/' + id,
+    }).then(response=>{
+      self.gear.splice(index,1);
+    }).catch(err=>console.log(err))
+  }
 
 
   ////////////////
@@ -242,15 +253,18 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
     }).then(function(response){
       console.log(response);
       self.user = response.data.user;
+      console.log(response.data.user);
       localStorage.setItem('token', JSON.stringify(response.data.token));
     }.bind(this));
   }
-  this.register = function(userReg){
+  this.registerUser = function(userReg){
     $http({
       method: 'POST',
-      url: self.url + '/users/',
+      url: this.url + '/users/',
       data: { user: {username: userReg.username, password: userReg.password }},
     }).then(function(result){
+      console.log(userReg);
+      console.log(result);
       self.login(userReg);
     })
   }
