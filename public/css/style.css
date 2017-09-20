@@ -105,8 +105,6 @@ nav {
   main {
     width: 80%;
     padding: 0; }
-    main form {
-      width: 60%; }
 
   nav {
     width: 100%;
@@ -159,9 +157,6 @@ nav {
       transform: rotate(45deg); }
     #nav-toggle.active span:after {
       transform: rotate(-45deg); }
-
-form {
-  max-width: 50%; }
 
 body {
   font-family: "Roboto", sans-serif;
@@ -388,13 +383,6 @@ body {
         margin: -200px auto auto 5%;
         width: 90%; } }
 
-input {
-  border: none;
-  outline: none;
-  background: none;
-  padding: 20px;
-  text-align: center; }
-
 .form-container {
   overflow: hidden;
   position: relative;
@@ -404,6 +392,127 @@ input {
   color: #374341;
   text-transform: uppercase; }
 
+.form-div {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  background-color: whitesmoke;
+  border: 15px solid #374341;
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-top: 35px;
+  padding-bottom: 50px;
+  width: 450px;
+  float: left;
+  left: 50%;
+  z-index: 1000;
+  position: fixed;
+  margin-top: 30px;
+  margin-left: -260px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px; }
+  .form-div .x {
+    position: absolute;
+    float: right;
+    top: 20px;
+    right: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 30px;
+    color: #F09900; }
+
+.postform {
+  margin: 0 auto;
+  width: 100%; }
+
+input {
+  width: 100%; }
+
+.feedback-input {
+  color: #374341;
+  font-size: 18px;
+  border-radius: 2px;
+  line-height: 22px;
+  background-color: whitesmoke;
+  padding: 13px;
+  margin: 5px auto;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 3px solid rgba(0, 0, 0, 0); }
+
+.feedback-input:focus {
+  background: whitesmoke;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0);
+  border: 3px solid #C8E462;
+  color: #374341;
+  outline: none;
+  padding: 13px; }
+
+.focused {
+  color: #C8E462;
+  border: #C8E462 solid 3px; }
+
+textarea {
+  width: 100%;
+  height: 150px;
+  line-height: 150%;
+  resize: vertical;
+  margin-bottom: 10px; }
+
+input:hover, textarea:hover,
+input:focus, textarea:focus {
+  background-color: whitesmoke; }
+
+.submitbutton {
+  float: left;
+  width: 100%;
+  border: whitesmoke solid 4px;
+  cursor: pointer;
+  background-color: #F09900;
+  color: whitesmoke;
+  font-size: 24px;
+  padding-top: 22px;
+  padding-bottom: 22px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  margin-top: -4px;
+  font-weight: 700; }
+
+.submitbutton:hover {
+  background-color: rgba(0, 0, 0, 0);
+  color: #0493bd; }
+
+.submit:hover {
+  color: #3498db; }
+
+.ease {
+  width: 0px;
+  height: 74px;
+  background-color: #C8E462;
+  -webkit-transition: .3s ease;
+  -moz-transition: .3s ease;
+  -o-transition: .3s ease;
+  -ms-transition: .3s ease;
+  transition: .3s ease; }
+
+.submit:hover .ease {
+  width: 100%;
+  background-color: #C8E462; }
+
+@media only screen and (max-width: 800px) {
+  .form-div {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    top: 70px;
+    bottom: 50px;
+    padding-top: 80px;
+    left: 0; }
+    .form-div .x {
+      padding-right: 20px; } }
 footer {
   position: fixed;
   bottom: 0;

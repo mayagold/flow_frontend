@@ -138,13 +138,16 @@
       <div class="quotes" ng-show="app.showQuotes==true">
         <h1 ><a id="post-quote-header" href="#" ng-click="showCreateQuoteForm=true">Post new quote</a></h1>
 
-        <div class="wrap" ng-show="showCreateQuoteForm==true">
-          <form class="content" ng-submit="app.postQuote(newQuote)">
-            <input type="text" ng-model="newQuote.author" placeholder="author"/>
-            <input type="text" ng-model="newQuote.content" placeholder="quote"/>
-            <input class="submit" type="submit"/>
+        <div class="form-div" ng-show="showCreateQuoteForm==true">
+          <form class="postform" ng-submit="app.postQuote(newQuote)">
+            <input type="text"  class="feedback-input" ng-model="newQuote.author" placeholder="author"/>
+            <input type="text"  class="feedback-input" ng-model="newQuote.content" placeholder="quote"/>
+            <div class="submit">
+              <input class="submitbutton" type="submit" value="SEND"/>
+              <div class="ease"></div>
+            </div>
           </form>
-          <a href="#" ng-click="showCreateQuoteForm=false">Close</a>
+          <a href="#" class="x" ng-click="showCreateQuoteForm=false">X</a>
         </div>
 
         <div class="quotesContainer">
@@ -170,15 +173,18 @@
       <!-- Photos -->
       <!--  -->
 
-      <div class="wrap" ng-show="showCreatePhotoForm==true">
-        <form class="content" ng-submit="app.postPhoto(newPhoto)">
-          <input type="text" ng-model="newPhoto.url" placeholder="url"/>
-          <input type="text" ng-model="newPhoto.title" placeholder="title"/>
-          <input type="text" ng-model="newPhoto.subject" placeholder="subject"/>
-          <input type="text" ng-model="newPhoto.caption" placeholder="caption"/>
-          <input class="submit" type="submit"/>
+      <div class="form-div" ng-show="showCreatePhotoForm==true">
+        <form class="postform" ng-submit="app.postPhoto(newPhoto)">
+          <input type="text"  class="feedback-input" ng-model="newPhoto.url" placeholder="url"/>
+          <input type="text"  class="feedback-input" ng-model="newPhoto.title" placeholder="title"/>
+          <input type="text"  class="feedback-input" ng-model="newPhoto.subject" placeholder="subject"/>
+          <input type="text"  class="feedback-input" ng-model="newPhoto.caption" placeholder="caption"/>
+          <div class="submit">
+            <input class="submitbutton" type="submit" value="SEND"/>
+            <div class="ease"></div>
+          </div>
         </form>
-        <a href="#" ng-click="showCreatePhotoForm=false">Close</a>
+        <a href="#" class="x" ng-click="showCreatePhotoForm=false">X</a>
       </div>
       <div class="photos" ng-show=app.showPhotos==true>
         <h1><a id="photo-header" href="#" ng-click="showCreatePhotoForm=true">Post new photo</a></h1>
@@ -220,16 +226,19 @@
       <div class="gear" ng-show=app.showGear==true>
         <h1><a href="#" ng-click="showCreateGearForm=true">Post new gear review</a></h1>
 
-        <div class="wrap" ng-show="showCreateGearForm==true">
-          <form class="content" ng-submit="app.postGearReview(newGear)">
-            <input type="text" ng-model="newGear.name" placeholder="name"/>
-            <input type="text" ng-model="newGear.image_url" placeholder="image url"/>
-            <input type="text" ng-model="newGear.brand" placeholder="brand"/>
-            <input type="text" ng-model="newGear.sport" placeholder="sport"/>
-            <input type="text" ng-model="newGear.review" placeholder="review"/>
-            <input class="submit" type="submit"/>
+        <div class="form-div" ng-show="showCreateGearForm==true">
+          <form class="postform" ng-submit="app.postGearReview(newGear)">
+            <input id="gearname" name="name" type="text" class="feedback-input" ng-model="newGear.name" placeholder="GEAR ITEM NAME"/>
+            <input id="gearurl" name="URL" type="text" class="feedback-input" ng-model="newGear.image_url" placeholder="IMAGE URL"/>
+            <input id="gearbrand" type="text" class="feedback-input" ng-model="newGear.brand" placeholder="BRAND"/>
+            <input id="gearsport" type="text" class="feedback-input" ng-model="newGear.sport" placeholder="SPORT"/>
+            <textarea id="gearreview" type="text" class="feedback-input" ng-model="newGear.review" placeholder="TELL US WHAT YOU THINK"></textarea>
+            <div class="submit">
+              <input class="submitbutton" type="submit" value="SEND"/>
+              <div class="ease"></div>
+            </div>
           </form>
-          <a href="#" ng-click="showCreateGearForm=false">Close</a>
+          <a href="#" class="x" ng-click="showCreateGearForm=false">X</a>
         </div>
 
         <div class="gearContainer">
@@ -255,16 +264,19 @@
       <div class="lineup" ng-show=app.showMembers==true>
         <h1><a href="#" ng-click="showCreateProfileForm=true">Create your NO EDITS profile</a></h1>
 
-        <div class="wrap" ng-show="showCreateProfileForm==true">
-          <form class="content" ng-submit="app.postToLineup(newProfile)">
-            <input type="text" ng-model="newProfile.name" placeholder="name"/>
-            <input type="text" ng-model="newProfile.location" placeholder="Where are you based?"/>
-            <input type="text" ng-model="newProfile.sports" placeholder="Your sport(s)"/>
-            <input type="text" ng-model="newProfile.goals" placeholder="What are you working on?"/>
-            <input type="text" ng-model="newProfile.photo" placeholder="profile picture url"/>
-            <input class="submit" type="submit"/>
-            <a href="#" ng-click="showCreateProfileForm=false">Close</a>
-          </form>
+        <div class="form-div" ng-show="showCreateProfileForm==true">
+          <form class="postform" ng-submit="app.postToLineup(newProfile)">
+            <input type="text"  class="feedback-input" ng-model="newProfile.name" placeholder="name"/>
+            <input type="text"  class="feedback-input" ng-model="newProfile.location" placeholder="Where are you based?"/>
+            <input type="text"  class="feedback-input" ng-model="newProfile.sports" placeholder="Your sport(s)"/>
+            <input type="text"  class="feedback-input" ng-model="newProfile.goals" placeholder="What are you working on?"/>
+            <input type="text"  class="feedback-input" ng-model="newProfile.photo" placeholder="profile picture url"/>
+            <div class="submit">
+              <input class="submitbutton" type="submit" value="SEND"/>
+                <div class="ease"></div>
+              </div>
+            </form>
+            <a href="#" class="x" ng-click="showCreateProfileForm=false">X</a>
         </div>
 
 
