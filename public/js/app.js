@@ -6,7 +6,6 @@ var app = angular.module('flow-app', []);
 ////////////////////////////////////////////////
 
 (function($) { // Begin jQuery
-
   // slideshow
   let slideshow = () => {
     setInterval(function() {
@@ -20,8 +19,7 @@ var app = angular.module('flow-app', []);
     },  6000);
   }
     slideshow();
-
-
+  // nav toggle
   $(function() { // DOM ready
     // If a link has a dropdown, add sub menu toggle.
     $('nav ul li a:not(:only-child)').click(function(e) {
@@ -44,7 +42,6 @@ var app = angular.module('flow-app', []);
     });
   }); // end DOM ready
 })(jQuery); // end jQuery
-
 
 ////////////////////////////////////////////////
 // AngularJS Controller
@@ -69,6 +66,7 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
   self.homepage = true;
   self.register = false;
 
+  // Page toggle -- very not DRY
   this.toggleRegister = function(){
     self.register = true;
     self.showQuotes = false;
@@ -123,7 +121,9 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
     self.register = false;
 
   }
-  // Get routes for quotes, gear and photos
+  ////////////////
+  // Get routes
+  ////////////////
   $http({
     method: 'GET',
     url: self.url + '/quotes'
@@ -160,8 +160,8 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
   }).catch(err=>{
     console.log(err);
   })
-
-  // Post routes for quotes, gear reviews, and photos
+  ////////////////
+  // Post routes
   this.postQuote = function(newQuote) {
     $http({
       method: 'POST',
@@ -202,12 +202,29 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
       console.log(response);
     }).catch(err=>console.log(err))
   }
+  ////////////////
+  // Delete routes
+  ////////////////
+  $scope.deleteQuote = function(quote){
+    $scope.currentQuote = quote;
+    console.log();
+    let id = $scope.currentQuote.id;
+    let index = self.quotes.indexOf($scope.currentQuote);
+    $http({
+      method: 'DELETE',
+      url: self.url + '/quotes/' + id,
+    }).then(response=>{
+      self.quotes.splice(index,1);
+    }).catch(err=>console.log(err))
+  }
 
-  // Delete routes for quotes, gears, photos
 
 
+  ////////////////
+  // Edit routes
+  ////////////////
 
-  // Login/reg/logout functions
+  // User Auth functions
   this.login = function(userPass){
     $http({
       method: 'POST',
