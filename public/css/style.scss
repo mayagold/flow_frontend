@@ -654,14 +654,19 @@ color: #0493bd;
 		width: 100%;
     height: 100%;
 		margin: 0;
-    padding: 0;
-    top: 70px;
+    top: 0;
     bottom: 50px;
     padding-top: 80px;
     left: 0;
     .x {
-      padding-right: 20px;
+      right: 100px;
     }
+  .submitbutton {
+    width: 80%;
+  }
+  .submit:hover .ease {
+    width:80%
+  }
 	}
 }
   footer {
