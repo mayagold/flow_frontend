@@ -331,7 +331,33 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
         self.gear.unshift(response.data);
       }).catch(err=>console.log(err));
     }
-    
+    // profiles
+    $scope.editProfile = function(member){
+      $scope.editingProfile = member;
+      self.showEditProfileForm = true;
+      console.log(member, ' this is current member');
+    }
+    $scope.submitEditProfile = function(){
+      console.log('calling edit function');
+      console.log($scope.editingProfile);
+      let id = $scope.editingProfile.id;
+      let index = self.members.indexOf($scope.editingProfile);
+      $http({
+        method: 'PUT',
+        url: self.url + '/members/' + id,
+        data: { member: {
+          name: self.editedProfile.name,
+          location: self.editedProfile.location,
+          sports: self.editedProfile.sports,
+          goals: self.editedProfile.goals,
+          photo: self.editedProfile.photo,
+          user_id: self.user.id }}
+      }).then(response=>{
+        console.log(response);
+        self.members.splice(index,1);
+        self.members.unshift(response.data);
+      }).catch(err=>console.log(err));
+    }
 
 
 

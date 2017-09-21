@@ -190,7 +190,7 @@
       <!--  -->
       <!-- Photos -->
       <!--  -->
-
+      <!-- Post photo form -->
       <div class="form-div" ng-show="showCreatePhotoForm==true">
         <form class="postform" ng-submit="app.postPhoto(newPhoto)">
           <input type="text"  class="feedback-input" ng-model="newPhoto.url" placeholder="url"/>
@@ -311,7 +311,7 @@
 
       <div class="lineup" ng-show=app.showMembers==true>
         <h1><a href="#" ng-click="showCreateProfileForm=true">Create your NO EDITS profile</a></h1>
-
+        <!-- Post profile form -->
         <div class="form-div" ng-show="showCreateProfileForm==true">
           <form class="postform" ng-submit="app.postToLineup(newProfile)">
             <input type="text"  class="feedback-input" ng-model="newProfile.name" placeholder="name"/>
@@ -326,9 +326,23 @@
             </form>
             <a href="#" class="x" ng-click="showCreateProfileForm=false">X</a>
         </div>
+        <!-- Edit profile form -->
+        <div class="form-div" ng-show="app.showEditProfileForm==true">
+          <form class="postform" ng-submit="submitEditProfile()">
+            <input type="text" class="feedback-input" ng-model="app.editedProfile.name" placeholder="name"/>
+            <input type="text" class="feedback-input" ng-model="app.editedProfile.location" placeholder="location"/>
+            <input type="text" class="feedback-input" ng-model="app.editedProfile.sports" placeholder="sports"/>
+            <input type="text" class="feedback-input" ng-model="app.editedProfile.goals" placeholder="goals"/>
+            <input type="text" class="feedback-input" ng-model="app.editedProfile.photo" placeholder="PHOTO URL"/>
+            <div class="submit">
+              <input class="submitbutton" type="submit" value="SEND"/>
+              <div class="ease"></div>
+            </div>
+          </form>
+          <a href="#" class="x" ng-click="app.showEditProfileForm=false">X</a>
+        </div>
 
-
-        <div class="profilesContainer">
+        <div class="gearContainer">
           <ul ng-repeat="member in app.members">
             <li>
               <img class="profile-pic" src="{{member.photo}}" alt="">
