@@ -6,10 +6,8 @@ var app = angular.module('flow-app', []);
 
 (function($) {
   $(function() { // DOM ready
-
     // slideshow
     // src: https://css-tricks.com/snippets/jquery/simple-auto-playing-slideshow/
-
     let slideshow = () => {
       $("#slideshow > div:gt(0)").hide()
       setInterval(function() {
@@ -22,10 +20,8 @@ var app = angular.module('flow-app', []);
       },  6000);
     }
       slideshow();
-
     // mobile-responsive nav bar
     // src: https://codepen.io/taniarascia/pen/dYvvYv
-
     $('nav ul li a:not(:only-child)').click(function(e) {
       $(this).siblings('.nav-dropdown').toggle();
       $('.nav-dropdown').not($(this).siblings()).hide();
@@ -358,9 +354,6 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
         self.members.unshift(response.data);
       }).catch(err=>console.log(err));
     }
-
-
-
 
   ////////////////
   // User Auth

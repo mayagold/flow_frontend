@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="flow-app">
   <head>
-
     <!--  -->
     <!-- Meta -->
     <!--  -->
-
     <meta charset="utf-8">
     <!-- Ensure proper rendering and touch zooming -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,13 +23,9 @@
     </script>
   </head>
   <body ng-controller="appController as app">
-
-
     <!--  -->
     <!-- NAVIGATION -->
     <!--  -->
-
-
     <section class="navigation">
       <div class="nav-container">
         <div class="logo">
@@ -67,13 +61,9 @@
         </nav>
       </div>
     </section>
-
-
     <!--  -->
     <!-- Main content -->
     <!--  -->
-
-
     <div class="main">
       <header ng-show="app.homepage==true" class="homepage">
         <!-- Slideshow -->
@@ -103,7 +93,7 @@
             <img class="mySlides" src="assets/barrel.jpg" style="width:100%">
           </div>
         </div>
-
+        <!-- Login Form -->
         <form class="form-container" ng-submit="app.login(userPass)">
           <input class="homepage-input" type="text" ng-model="userPass.username" placeholder="USERNAME"/>
           <br/>
@@ -116,9 +106,8 @@
           <a id="reg" href="#" ng-click="app.toggleRegister()">NEW? JOIN THE CREW</a>
         </form>
       </header>
-
-      <!-- User Auth Forms --><div class="registerpage" ng-show="app.register==true">
-
+      <!-- Register form -->
+      <div class="registerpage" ng-show="app.register==true">
       <div class="homepage-image" >
         <div class="">
           <img id="register-image" src="assets/rope.jpg" style="width:100%"/>
@@ -135,11 +124,9 @@
         <br/>
       </form>
       </div>
-
       <!--  -->
-      <!-- Quotes -->
+      <!-- Quotes Page -->
       <!--  -->
-
       <div class="quotes" ng-show="app.showQuotes==true">
         <!-- Click to post new quote -->
         <h1 ><a id="post-quote-header" href="#" ng-click="showCreateQuoteForm=true">Post new quote</a></h1>
@@ -157,6 +144,7 @@
           <!-- click to exit form -->
           <a href="#" class="x" ng-click="showCreateQuoteForm=false">X</a>
         </div>
+        <!-- Edit Quote Form -->
         <div class="form-div" ng-show="app.showEditQuoteForm==true">
           <form class="postform" ng-submit="submitEditQuote()">
             <input type="text" class="feedback-input" ng-model="app.editedQuote.author" placeholder="author"/>
@@ -184,9 +172,6 @@
           </ul>
         </div>
       </div>
-      <!-- Edit Quote Form -->
-
-
       <!--  -->
       <!-- Photos -->
       <!--  -->
@@ -218,6 +203,7 @@
         </form>
         <a href="#" class="x" ng-click="app.showEditPhotoForm=false">X</a>
       </div>
+      <!-- Photos container -->
       <div class="photos" ng-show=app.showPhotos==true>
         <h1><a id="photo-header" href="#" ng-click="showCreatePhotoForm=true">Post new photo</a></h1>
         <div class="gallery">
@@ -235,8 +221,6 @@
           </div>
         </div>
       </div>
-
-
       <!-- Modal for full scrn images on click -->
       <!-- <div id="image-modal" onclick="this.style.display='none'">
         <span class="close-button">x</span>
@@ -250,14 +234,12 @@
         </div>
       </div> -->
 
-
       <!--  -->
-      <!-- Gear -->
+      <!-- Gear Page -->
       <!--  -->
-
       <div class="gear" ng-show=app.showGear==true>
         <!-- click to post gear review -->
-        <h1><a href="#" ng-click="showCreateGearForm=true">Post new gear review</a></h1>
+        <h1><a href="#" class="post-quote-header" ng-click="showCreateGearForm=true">Post new gear review</a></h1>
         <!-- create new gear review form -->
         <div id="gear-form-div" class="form-div" ng-show="showCreateGearForm==true">
           <form class="postform" ng-submit="app.postGearReview(newGear)">
@@ -293,8 +275,10 @@
           <ul ng-repeat="gear in app.gear">
             <li>
               <img src="{{gear.image_url}}" alt=""/>
-              <p id="gear-name">{{gear.name}}</p><p>{{gear.brand}}</p><p>
-              "{{gear.review}}"</p><small>SPORT: {{gear.sport}}</small>
+              <p id="gear-name">{{gear.name}}</p>
+              <p>{{gear.brand}}</p>
+              <p>"{{gear.review}}"</p>
+              <small>SPORT: {{gear.sport}}</small>
               <div class="yours" ng-show="app.user.id==gear.user_id">
                 <p>You posted this gear review.</p>
                 <a href="#" ng-click="deleteGear(gear);">Delete</a>
@@ -308,9 +292,8 @@
       <!--  -->
       <!-- Profiles -->
       <!--  -->
-
       <div class="lineup" ng-show=app.showMembers==true>
-        <h1><a href="#" ng-click="showCreateProfileForm=true">Create your NO EDITS profile</a></h1>
+        <h1><a href="#" class="post-quote-header" ng-click="showCreateProfileForm=true">Create your NO EDITS profile</a></h1>
         <!-- Post profile form -->
         <div class="form-div" ng-show="showCreateProfileForm==true">
           <form class="postform" ng-submit="app.postToLineup(newProfile)">
@@ -341,7 +324,7 @@
           </form>
           <a href="#" class="x" ng-click="app.showEditProfileForm=false">X</a>
         </div>
-
+        <!-- Gear Container -->
         <div class="gearContainer">
           <ul ng-repeat="member in app.members">
             <li>
@@ -358,11 +341,9 @@
       </div>
     </div>
   </body>
-
   <!--  -->
   <!-- Footer -->
   <!--  -->
-
   <footer>
     <p ng-show="app.user.username">{{ app.user.username }}, you are logged in. <a id="logout" href="#" ng-click="app.logout()">click to Log Out</a></p>
   </footer>
