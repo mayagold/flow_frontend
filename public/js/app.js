@@ -304,6 +304,33 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
         self.photos.unshift(response.data);
       }).catch(err=>console.log(err));
     }
+    // gear
+    $scope.editGear = function(gear){
+      $scope.editingGear = gear;
+      self.showEditGearForm = true;
+      console.log(gear, ' this is gear');
+    }
+    $scope.submitEditGear = function(){
+      console.log('calling edit function');
+      console.log($scope.editingGear);
+      let id = $scope.editingGear.id;
+      let index = self.gear.indexOf($scope.editingGear);
+      $http({
+        method: 'PUT',
+        url: self.url + '/gears/' + id,
+        data: { gear: {
+          name: self.editedGear.name,
+          image_url: self.editedGear.image_url,
+          brand: self.editedGear.brand,
+          sport: self.editedGear.sport,
+          review: self.editedGear.review,
+          user_id: self.user.id }}
+      }).then(response=>{
+        console.log(response);
+        self.gear.splice(index,1);
+        self.gear.unshift(response.data);
+      }).catch(err=>console.log(err));
+    }
 
 
 
