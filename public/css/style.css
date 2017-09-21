@@ -165,6 +165,10 @@ body {
   width: 100%;
   margin: 0;
   padding: 0; }
+  body h1 {
+    text-align: right;
+    font-size: 20px;
+    padding-right: 20px; }
   body .homepage-image {
     margin: 50px auto;
     position: relative;
@@ -177,8 +181,7 @@ body {
       position: absolute;
       top: 10px;
       left: 10px;
-      right: 10px;
-      bottom: 10px; }
+      right: 10px; }
   @media only screen and (max-width: 800px) {
     body .homepage-image {
       margin: 50px auto;
@@ -242,16 +245,6 @@ body {
     body .homepage h1, body .register h1 {
       color: #EA0034;
       font-size: 2em; }
-  body .yours {
-    color: #EA0034;
-    font-weight: bold;
-    text-transform: capitalize;
-    position: absolute;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 500;
-    width: 300px;
-    margin-left: 16px;
-    margin-top: -319px; }
   body .quotes {
     background: whitesmoke;
     color: #374341;
@@ -263,10 +256,6 @@ body {
         list-style: none; }
         body .quotes .quotesContainer ul li {
           display: block; }
-    body .quotes h1 {
-      text-align: right;
-      font-size: 20px;
-      padding-right: 20px; }
     body .quotes #post-quote-header {
       text-decoration: none;
       color: #374341; }
@@ -399,13 +388,13 @@ body {
   padding-left: 35px;
   padding-right: 35px;
   padding-top: 35px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
   width: 450px;
   float: left;
   left: 50%;
   z-index: 1000;
   position: fixed;
-  margin-top: 30px;
+  margin-top: 0px;
   margin-left: -260px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px; }
@@ -418,6 +407,9 @@ body {
     font-weight: 500;
     font-size: 30px;
     color: #F09900; }
+
+#gear-form-div {
+  margin-top: -50px; }
 
 .postform {
   margin: 0 auto;
@@ -432,8 +424,8 @@ input {
   border-radius: 2px;
   line-height: 22px;
   background-color: whitesmoke;
-  padding: 13px;
-  margin: 5px auto;
+  padding: 10px;
+  margin: 3px auto;
   width: 100%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -515,6 +507,8 @@ input:focus, textarea:focus {
     .form-div .submitbutton {
       width: 80%; }
     .form-div .submit:hover .ease {
+      width: 80%; }
+    .form-div .feedback-input {
       width: 80%; } }
 footer {
   position: fixed;

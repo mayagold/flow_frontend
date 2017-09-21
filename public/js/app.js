@@ -1,46 +1,42 @@
 var app = angular.module('flow-app', []);
 
-
 ////////////////////////////////////////////////
 // JQUERY
 ////////////////////////////////////////////////
 
-(function($) { // Begin jQuery
-
-
-  // photo modal
-
-  // slideshow
-  let slideshow = () => {
-    setInterval(function() {
-      $("#slideshow > div:gt(0)").hide()
-      $('#slideshow > div:first')
-      .fadeOut(3000)
-      .next()
-      .fadeIn(3000)
-      .end()
-      .appendTo('#slideshow');
-    },  6000);
-  }
-    slideshow();
-  // nav toggle
+(function($) {
   $(function() { // DOM ready
-    // If a link has a dropdown, add sub menu toggle.
+
+    // slideshow
+    // src: https://css-tricks.com/snippets/jquery/simple-auto-playing-slideshow/
+
+    let slideshow = () => {
+      $("#slideshow > div:gt(0)").hide()
+      setInterval(function() {
+        $('#slideshow > div:first')
+        .fadeOut(3000)
+        .next()
+        .fadeIn(3000)
+        .end()
+        .appendTo('#slideshow');
+      },  6000);
+    }
+      slideshow();
+
+    // mobile-responsive nav bar
+    // src: https://codepen.io/taniarascia/pen/dYvvYv
+
     $('nav ul li a:not(:only-child)').click(function(e) {
       $(this).siblings('.nav-dropdown').toggle();
-      // Close one dropdown when selecting another
       $('.nav-dropdown').not($(this).siblings()).hide();
       e.stopPropagation();
     });
-    // Clicking away from dropdown will remove the dropdown class
     $('html').click(function() {
       $('.nav-dropdown').hide();
     });
-    // Toggle open and close nav styles on click
     $('#nav-toggle').click(function() {
       $('nav ul').slideToggle();
     });
-    // Hamburger to X toggle
     $('#nav-toggle').on('click', function() {
       this.classList.toggle('active');
     });
@@ -53,22 +49,22 @@ var app = angular.module('flow-app', []);
 
 app.controller('appController', ['$http', '$scope', '$filter', function($http, $scope, $filter){
 
-  console.log('hi');
+  var self       = this;
 
-  this.url = 'https://noedits-api.herokuapp.com';
-  var self = this;
-  this.user = {};
-  this.users = [];
-  self.quotes = [];
-  self.photos = [];
-  self.members = [];
-  self.gear = [];
-  self.showQuotes = false;
-  self.showPhotos = false;
-  self.showGear = false;
-  self.showMembers = false;
-  self.homepage = true;
-  self.register = false;
+  this.url       = 'https://noedits-api.herokuapp.com';
+  this.user      = {};
+  this.users     = [];
+  this.quotes    = [];
+  this.photos    = [];
+  this.members   = [];
+  this.gear      = [];
+
+  this.homepage     = true;
+  this.showQuotes   = false;
+  this.showPhotos   = false;
+  this.showGear     = false;
+  this.showMembers  = false;
+  this.register     = false;
 
   // Page toggle -- very not DRY
   this.toggleRegister = function(){
@@ -79,7 +75,6 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
     self.showMembers = false;
     self.homepage = false;
   }
-
   this.toggleQuotes = function(){
     self.showQuotes = true;
     self.showPhotos = false;
@@ -87,7 +82,6 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
     self.showMembers = false;
     self.homepage = false;
     self.register = false;
-
   }
   this.togglePhotos = function(){
     self.showQuotes = false;
@@ -96,7 +90,6 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
     self.showMembers = false;
     self.homepage = false;
     self.register = false;
-
   }
   this.toggleGear = function(){
     self.showQuotes = false;
@@ -105,7 +98,6 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
     self.showMembers = false;
     self.homepage = false;
     self.register = false;
-
   }
   this.toggleLineup = function(){
     self.showQuotes = false;
@@ -114,7 +106,6 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
     self.showMembers = true;
     self.homepage = false;
     self.register = false;
-
   }
   this.toggleHomepage = function(){
     self.showQuotes = false;
@@ -123,11 +114,12 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
     self.showMembers = false;
     self.homepage = true;
     self.register = false;
-
   }
+
   ////////////////
   // Get routes
   ////////////////
+
   $http({
     method: 'GET',
     url: self.url + '/quotes'
@@ -164,8 +156,11 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
   }).catch(err=>{
     console.log(err);
   })
+
   ////////////////
   // Post routes
+  ////////////////
+
   this.postQuote = function(newQuote) {
     $http({
       method: 'POST',
@@ -206,9 +201,11 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
       console.log(response);
     }).catch(err=>console.log(err))
   }
+
   ////////////////
   // Delete routes
   ////////////////
+
   $scope.deleteQuote = function(quote){
     $scope.currentQuote = quote;
     let id = $scope.currentQuote.id;
@@ -254,12 +251,40 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
     }).catch(err=>console.log(err))
   }
 
-
   ////////////////
   // Edit routes
   ////////////////
 
-  // User Auth functions
+    $scope.editQuote = function(quote){
+      $scope.editingQuote = quote;
+      self.showEditQuoteForm = true;
+      console.log(quote, ' this is quote');
+    }
+
+    $scope.submitEditQuote = function(){
+      console.log('calling edit function');
+      console.log($scope.editingQuote);
+      let id = $scope.editingQuote.id;
+      let index = self.quotes.indexOf($scope.editingQuote);
+      $http({
+        method: 'PUT',
+        url: self.url + '/quotes/' + id,
+        data: { quote: {
+          author: self.editedQuote.author,
+          content: self.editedQuote.content,
+          user_id: self.user.id }}
+      }).then(response=>{
+        console.log(response);
+        self.quotes.splice(index,1);
+        self.quotes.unshift(response.data);
+      }).catch(err=>console.log(err));
+    }
+
+
+  ////////////////
+  // User Auth
+  ////////////////
+
   this.login = function(userPass){
     $http({
       method: 'POST',

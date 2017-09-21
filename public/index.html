@@ -136,8 +136,9 @@
       <!--  -->
 
       <div class="quotes" ng-show="app.showQuotes==true">
+        <!-- Click to post new quote -->
         <h1 ><a id="post-quote-header" href="#" ng-click="showCreateQuoteForm=true">Post new quote</a></h1>
-
+        <!-- Post new quote: form -->
         <div class="form-div" ng-show="showCreateQuoteForm==true">
           <form class="postform" ng-submit="app.postQuote(newQuote)">
             <input type="text"  class="feedback-input" ng-model="newQuote.author" placeholder="author"/>
@@ -145,26 +146,39 @@
             <div class="submit">
               <input class="submitbutton" type="submit" value="SEND"/>
               <div class="ease"></div>
+              <!-- ease animation src: https://codepen.io/anon/pen/eGzZda?q=form&limit=all&order=popularity&depth=everything&show_forks=false (used on all forms) -->
             </div>
           </form>
+          <!-- click to exit form -->
           <a href="#" class="x" ng-click="showCreateQuoteForm=false">X</a>
         </div>
 
+        <!-- quotes container on page -->
         <div class="quotesContainer">
           <ul ng-repeat="quote in app.quotes">
             <li>
-
               <blockquote>
                 <p>"{{quote.content}}"</p>
                 <small>{{quote.author}}</small>
               </blockquote>
-
               <div class="yours" ng-show="app.user.id==quote.user_id">
-                <p>You posted this quote.</p>
                 <a href="#" ng-click="deleteQuote(quote);">Delete</a>
                 <a href="#" ng-click="editQuote(quote)">Edit</a>
               </div>
             </li>
+
+            <!-- Edit Quote Form -->
+            <div class="form-div" ng-show="app.showEditQuoteForm==true">
+              <form class="postform" ng-submit="submitEditQuote()">
+                <input type="text" class="feedback-input" ng-model="app.editedQuote.author" placeholder="author"/>
+                <input type="text"  class="feedback-input" ng-model="app.editedQuote.content" placeholder="quote"/>
+                <div class="submit">
+                  <input class="submitbutton" type="submit" value="SEND"/>
+                  <div class="ease"></div>
+                </div>
+              </form>
+              <a href="#" class="x" ng-click="app.showEditQuoteForm=false">X</a>
+            </div>
           </ul>
         </div>
       </div>
@@ -226,7 +240,7 @@
       <div class="gear" ng-show=app.showGear==true>
         <h1><a href="#" ng-click="showCreateGearForm=true">Post new gear review</a></h1>
 
-        <div class="form-div" ng-show="showCreateGearForm==true">
+        <div id="gear-form-div" class="form-div" ng-show="showCreateGearForm==true">
           <form class="postform" ng-submit="app.postGearReview(newGear)">
             <input id="gearname" name="name" type="text" class="feedback-input" ng-model="newGear.name" placeholder="GEAR ITEM NAME"/>
             <input id="gearurl" name="URL" type="text" class="feedback-input" ng-model="newGear.image_url" placeholder="IMAGE URL"/>

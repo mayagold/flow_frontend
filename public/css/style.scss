@@ -234,7 +234,11 @@ nav {
 
 body {
 
-
+  h1 {
+    text-align: right;
+    font-size: 20px;
+    padding-right: 20px;
+  }
 
   .homepage-image {
     margin: 50px auto;
@@ -249,13 +253,8 @@ body {
       top: 10px;
       left: 10px;
       right: 10px;
-      bottom: 10px;
-      img {
-
-      }
     }
   }
-
 
   @media only screen and (max-width: $breakpoint) {
     .homepage-image {
@@ -344,15 +343,15 @@ body {
   }
 
   .yours {
-    color: $fh-pink;
-    font-weight: bold;
-    text-transform: capitalize;
-    position: absolute;
-    background: rgba(0,0,0,.3);
-    z-index: 500;
-    width: 300px;
-    margin-left: 16px;
-    margin-top: -319px;
+    // color: $fh-pink;
+    // font-weight: bold;
+    // text-transform: capitalize;
+    // position: absolute;
+    // background: rgba(0,0,0,.3);
+    // z-index: 500;
+    // width: 300px;
+    // margin-left: 16px;
+    // margin-top: -319px;
   }
   .quotes {
     background: $fh-white;
@@ -369,11 +368,7 @@ body {
         }
       }
     }
-    h1 {
-      text-align: right;
-      font-size: 20px;
-      padding-right: 20px;
-    }
+
     #post-quote-header {
       text-decoration: none;
       color: $fh-coal;
@@ -538,13 +533,13 @@ body {
   	padding-left:35px;
   	padding-right:35px;
   	padding-top:35px;
-  	padding-bottom:50px;
+  	padding-bottom:20px;
   	width: 450px;
   	float: left;
   	left: 50%;
     z-index: 1000;
   	position: fixed; //was absolute and looked good
-    margin-top:30px;
+    margin-top:0px;
   	margin-left: -260px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -559,6 +554,11 @@ body {
       color: $fh-orange;
     }
   }
+
+  #gear-form-div {
+    margin-top: -50px;
+  }
+
   .postform {
     margin: 0 auto;
     width: 100%;
@@ -572,8 +572,8 @@ body {
 	border-radius: 2px;
 	line-height: 22px;
 	background-color: $fh-white;
-	padding: 13px;
-	margin: 5px auto;
+	padding: 10px;
+	margin: 3px auto;
 	width:100%;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -661,12 +661,15 @@ color: #0493bd;
     .x {
       right: 100px;
     }
-  .submitbutton {
-    width: 80%;
-  }
-  .submit:hover .ease {
-    width:80%
-  }
+    .submitbutton {
+      width: 80%;
+    }
+    .submit:hover .ease {
+      width:80%
+    }
+    .feedback-input {
+      width: 80%
+    }
 	}
 }
   footer {
