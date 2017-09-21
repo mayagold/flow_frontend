@@ -159,6 +159,7 @@ nav {
       transform: rotate(-45deg); }
 
 body {
+  padding: 0 0 50px 0;
   font-family: "Roboto", sans-serif;
   background-color: whitesmoke;
   color: #374341;
@@ -372,11 +373,33 @@ body {
         margin: -200px auto auto 5%;
         width: 90%; } }
 
+.gearContainer {
+  width: 90%; }
+  .gearContainer ul {
+    display: block;
+    padding: 10px;
+    list-style: none;
+    text-align: center;
+    margin: 0 auto; }
+    .gearContainer ul li {
+      padding: 10px;
+      color: #374341; }
+      .gearContainer ul li img {
+        max-width: 100%;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        background-color: whitesmoke; }
+      .gearContainer ul li p {
+        text-transform: uppercase; }
+      .gearContainer ul li #gear-name {
+        font-weight: 500;
+        font-size: 20px;
+        color: #F09900; }
+
 .form-container {
   overflow: hidden;
   position: relative;
-  margin: 0 auto 100px auto;
-  padding: 0;
+  margin: 0 100px 100px;
+  padding: 10px;
   background: whitesmoke;
   color: #374341;
   text-transform: uppercase; }
@@ -433,6 +456,17 @@ input {
   box-sizing: border-box;
   border: 3px solid rgba(0, 0, 0, 0); }
 
+.homepage-input {
+  color: #374341;
+  font-size: 18px;
+  text-align: center;
+  line-height: 22px;
+  background: whitesmoke;
+  padding: 10px;
+  margin: 3px auto;
+  width: 50%;
+  border: 3px solid rgba(0, 0, 0, 0); }
+
 .feedback-input:focus {
   background: whitesmoke;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0);
@@ -440,6 +474,11 @@ input {
   color: #374341;
   outline: none;
   padding: 13px; }
+
+.homepage-input:focus {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0);
+  border: 3px solid #C8E462;
+  color: #374341; }
 
 .focused {
   color: #C8E462;
@@ -472,12 +511,34 @@ input:focus, textarea:focus {
   margin-top: -4px;
   font-weight: 700; }
 
-.submitbutton:hover {
+.submitbutton-homepage {
+  width: 50%;
+  border: whitesmoke solid 4px;
+  cursor: pointer;
+  background-color: whitesmoke;
+  color: #0493bd;
+  font-size: 24px;
+  padding-top: 22px;
+  padding-bottom: 22px;
+  margin-top: 5px;
+  font-weight: 700; }
+
+#reg {
+  text-decoration: none;
+  color: #374341; }
+
+#reg:hover {
+  color: #F09900; }
+
+.submitbutton-homepage:hover {
   background-color: rgba(0, 0, 0, 0);
-  color: #0493bd; }
+  color: #C8E462; }
 
 .submit:hover {
   color: #3498db; }
+
+.submit-homepage:hover {
+  color: lime; }
 
 .ease {
   width: 0px;

@@ -105,15 +105,17 @@
         </div>
 
         <form class="form-container" ng-submit="app.login(userPass)">
-          <label><span>Username</span><input type="text" ng-model="userPass.username" placeholder="____________________________"/></label>
+          <input class="homepage-input" type="text" ng-model="userPass.username" placeholder="USERNAME"/>
           <br/>
-          <label><span>Password</span><input type="password" ng-model="userPass.password" placeholder="____________________________"/></label>
+          <input class="homepage-input" type="password" ng-model="userPass.password" placeholder="PASSWORD"/>
           <br/>
-          <input type="SUBMIT" value="LOG IN"/><br/>
-          <a href="#" ng-click="app.toggleRegister()">NEW? JOIN THE CREW</a>
+          <div class="submit-homepage">
+            <input class="submitbutton-homepage" type="SUBMIT" value="LOG IN"/>
+          </div>
+          <br/>
+          <a id="reg" href="#" ng-click="app.toggleRegister()">NEW? JOIN THE CREW</a>
         </form>
       </header>
-
 
       <!-- User Auth Forms --><div class="registerpage" ng-show="app.register==true">
 
@@ -125,9 +127,12 @@
         </div>
       </div>
       <form class="form-container" ng-submit="app.registerUser(userReg)" style="text-align:center">
-        <label><span>Username</span><input type="text" ng-model="userReg.username" placeholder="create username"/></label><br/>
-        <label><span>Password</span><input type="password" ng-model="userReg.password" placeholder="create password"/></label><br/>
-        <input type="submit" VALUE="JOIN US"/>
+        <input class="homepage-input" type="text" ng-model="userReg.username" placeholder="NEW USERNAME"/><br/>
+        <input class="homepage-input" type="password" ng-model="userReg.password" placeholder="NEW PASSWORD"/><br/>
+        <div class="submit-homepage">
+          <input class="submitbutton-homepage" type="SUBMIT" value="REGISTER"/>
+        </div>
+        <br/>
       </form>
       </div>
 
@@ -288,8 +293,8 @@
           <ul ng-repeat="gear in app.gear">
             <li>
               <img src="{{gear.image_url}}" alt=""/>
-              {{gear.name}}<br/>{{gear.brand}}<br/>
-              {{gear.review}}<small>{{gear.sport}}</small>
+              <p id="gear-name">{{gear.name}}</p><p>{{gear.brand}}</p><p>
+              "{{gear.review}}"</p><small>SPORT: {{gear.sport}}</small>
               <div class="yours" ng-show="app.user.id==gear.user_id">
                 <p>You posted this gear review.</p>
                 <a href="#" ng-click="deleteGear(gear);">Delete</a>

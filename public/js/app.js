@@ -331,7 +331,7 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
         self.gear.unshift(response.data);
       }).catch(err=>console.log(err));
     }
-
+    
 
 
 
