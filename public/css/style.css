@@ -165,6 +165,10 @@ body {
   width: 100%;
   margin: 0;
   padding: 0; }
+  body h1 {
+    text-align: right;
+    font-size: 20px;
+    padding-right: 20px; }
   body .homepage-image {
     margin: 50px auto;
     position: relative;
@@ -177,8 +181,7 @@ body {
       position: absolute;
       top: 10px;
       left: 10px;
-      right: 10px;
-      bottom: 10px; }
+      right: 10px; }
   @media only screen and (max-width: 800px) {
     body .homepage-image {
       margin: 50px auto;
@@ -242,16 +245,6 @@ body {
     body .homepage h1, body .register h1 {
       color: #EA0034;
       font-size: 2em; }
-  body .yours {
-    color: #EA0034;
-    font-weight: bold;
-    text-transform: capitalize;
-    position: absolute;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 500;
-    width: 300px;
-    margin-left: 16px;
-    margin-top: -319px; }
   body .quotes {
     background: whitesmoke;
     color: #374341;
@@ -263,10 +256,6 @@ body {
         list-style: none; }
         body .quotes .quotesContainer ul li {
           display: block; }
-    body .quotes h1 {
-      text-align: right;
-      font-size: 20px;
-      padding-right: 20px; }
     body .quotes #post-quote-header {
       text-decoration: none;
       color: #374341; }
@@ -383,11 +372,34 @@ body {
         margin: -200px auto auto 5%;
         width: 90%; } }
 
+.gearContainer {
+  width: 90%;
+  padding-bottom: 100px; }
+  .gearContainer ul {
+    display: block;
+    padding: 10px;
+    list-style: none;
+    text-align: center;
+    margin: 0 auto; }
+    .gearContainer ul li {
+      padding: 10px;
+      color: #374341; }
+      .gearContainer ul li img {
+        max-width: 100%;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        background-color: whitesmoke; }
+      .gearContainer ul li p {
+        text-transform: uppercase; }
+      .gearContainer ul li #gear-name {
+        font-weight: 500;
+        font-size: 20px;
+        color: #F09900; }
+
 .form-container {
   overflow: hidden;
   position: relative;
-  margin: 0 auto 100px auto;
-  padding: 0;
+  margin: 0 100px 100px;
+  padding: 10px;
   background: whitesmoke;
   color: #374341;
   text-transform: uppercase; }
@@ -399,13 +411,13 @@ body {
   padding-left: 35px;
   padding-right: 35px;
   padding-top: 35px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
   width: 450px;
   float: left;
   left: 50%;
   z-index: 1000;
   position: fixed;
-  margin-top: 30px;
+  margin-top: 0px;
   margin-left: -260px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px; }
@@ -418,6 +430,9 @@ body {
     font-weight: 500;
     font-size: 30px;
     color: #F09900; }
+
+#gear-form-div {
+  margin-top: -50px; }
 
 .postform {
   margin: 0 auto;
@@ -432,13 +447,24 @@ input {
   border-radius: 2px;
   line-height: 22px;
   background-color: whitesmoke;
-  padding: 13px;
-  margin: 5px auto;
+  padding: 10px;
+  margin: 3px auto;
   width: 100%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
+  border: 3px solid rgba(0, 0, 0, 0); }
+
+.homepage-input {
+  color: #374341;
+  font-size: 18px;
+  text-align: center;
+  line-height: 22px;
+  background: whitesmoke;
+  padding: 10px;
+  margin: 3px auto;
+  width: 50%;
   border: 3px solid rgba(0, 0, 0, 0); }
 
 .feedback-input:focus {
@@ -448,6 +474,11 @@ input {
   color: #374341;
   outline: none;
   padding: 13px; }
+
+.homepage-input:focus {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0);
+  border: 3px solid #C8E462;
+  color: #374341; }
 
 .focused {
   color: #C8E462;
@@ -480,12 +511,34 @@ input:focus, textarea:focus {
   margin-top: -4px;
   font-weight: 700; }
 
-.submitbutton:hover {
+.submitbutton-homepage {
+  width: 50%;
+  border: whitesmoke solid 4px;
+  cursor: pointer;
+  background-color: whitesmoke;
+  color: #0493bd;
+  font-size: 24px;
+  padding-top: 22px;
+  padding-bottom: 22px;
+  margin-top: 5px;
+  font-weight: 700; }
+
+#reg {
+  text-decoration: none;
+  color: #374341; }
+
+#reg:hover {
+  color: #F09900; }
+
+.submitbutton-homepage:hover {
   background-color: rgba(0, 0, 0, 0);
-  color: #0493bd; }
+  color: #C8E462; }
 
 .submit:hover {
   color: #3498db; }
+
+.submit-homepage:hover {
+  color: lime; }
 
 .ease {
   width: 0px;
@@ -515,6 +568,8 @@ input:focus, textarea:focus {
     .form-div .submitbutton {
       width: 80%; }
     .form-div .submit:hover .ease {
+      width: 80%; }
+    .form-div .feedback-input {
       width: 80%; } }
 footer {
   position: fixed;

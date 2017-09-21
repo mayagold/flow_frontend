@@ -1,46 +1,38 @@
 var app = angular.module('flow-app', []);
 
-
 ////////////////////////////////////////////////
 // JQUERY
 ////////////////////////////////////////////////
 
-(function($) { // Begin jQuery
-
-
-  // photo modal
-
-  // slideshow
-  let slideshow = () => {
-    setInterval(function() {
-      $("#slideshow > div:gt(0)").hide()
-      $('#slideshow > div:first')
-      .fadeOut(3000)
-      .next()
-      .fadeIn(3000)
-      .end()
-      .appendTo('#slideshow');
-    },  6000);
-  }
-    slideshow();
-  // nav toggle
+(function($) {
   $(function() { // DOM ready
-    // If a link has a dropdown, add sub menu toggle.
+    // slideshow
+    // src: https://css-tricks.com/snippets/jquery/simple-auto-playing-slideshow/
+    let slideshow = () => {
+      $("#slideshow > div:gt(0)").hide()
+      setInterval(function() {
+        $('#slideshow > div:first')
+        .fadeOut(3000)
+        .next()
+        .fadeIn(3000)
+        .end()
+        .appendTo('#slideshow');
+      },  6000);
+    }
+      slideshow();
+    // mobile-responsive nav bar
+    // src: https://codepen.io/taniarascia/pen/dYvvYv
     $('nav ul li a:not(:only-child)').click(function(e) {
       $(this).siblings('.nav-dropdown').toggle();
-      // Close one dropdown when selecting another
       $('.nav-dropdown').not($(this).siblings()).hide();
       e.stopPropagation();
     });
-    // Clicking away from dropdown will remove the dropdown class
     $('html').click(function() {
       $('.nav-dropdown').hide();
     });
-    // Toggle open and close nav styles on click
     $('#nav-toggle').click(function() {
       $('nav ul').slideToggle();
     });
-    // Hamburger to X toggle
     $('#nav-toggle').on('click', function() {
       this.classList.toggle('active');
     });
@@ -53,22 +45,22 @@ var app = angular.module('flow-app', []);
 
 app.controller('appController', ['$http', '$scope', '$filter', function($http, $scope, $filter){
 
-  console.log('hi');
+  var self       = this;
 
-  this.url = 'https://noedits-api.herokuapp.com';
-  var self = this;
-  this.user = {};
-  this.users = [];
-  self.quotes = [];
-  self.photos = [];
-  self.members = [];
-  self.gear = [];
-  self.showQuotes = false;
-  self.showPhotos = false;
-  self.showGear = false;
-  self.showMembers = false;
-  self.homepage = true;
-  self.register = false;
+  this.url       = 'https://noedits-api.herokuapp.com';
+  this.user      = {};
+  this.users     = [];
+  this.quotes    = [];
+  this.photos    = [];
+  this.members   = [];
+  this.gear      = [];
+
+  this.homepage     = true;
+  this.showQuotes   = false;
+  this.showPhotos   = false;
+  this.showGear     = false;
+  this.showMembers  = false;
+  this.register     = false;
 
   // Page toggle -- very not DRY
   this.toggleRegister = function(){
@@ -79,7 +71,6 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
     self.showMembers = false;
     self.homepage = false;
   }
-
   this.toggleQuotes = function(){
     self.showQuotes = true;
     self.showPhotos = false;
@@ -87,7 +78,6 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
     self.showMembers = false;
     self.homepage = false;
     self.register = false;
-
   }
   this.togglePhotos = function(){
     self.showQuotes = false;
@@ -96,7 +86,6 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
     self.showMembers = false;
     self.homepage = false;
     self.register = false;
-
   }
   this.toggleGear = function(){
     self.showQuotes = false;
@@ -105,7 +94,6 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
     self.showMembers = false;
     self.homepage = false;
     self.register = false;
-
   }
   this.toggleLineup = function(){
     self.showQuotes = false;
@@ -114,7 +102,6 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
     self.showMembers = true;
     self.homepage = false;
     self.register = false;
-
   }
   this.toggleHomepage = function(){
     self.showQuotes = false;
@@ -123,11 +110,12 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
     self.showMembers = false;
     self.homepage = true;
     self.register = false;
-
   }
+
   ////////////////
   // Get routes
   ////////////////
+
   $http({
     method: 'GET',
     url: self.url + '/quotes'
@@ -164,8 +152,11 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
   }).catch(err=>{
     console.log(err);
   })
+
   ////////////////
   // Post routes
+  ////////////////
+
   this.postQuote = function(newQuote) {
     $http({
       method: 'POST',
@@ -206,9 +197,11 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
       console.log(response);
     }).catch(err=>console.log(err))
   }
+
   ////////////////
   // Delete routes
   ////////////////
+
   $scope.deleteQuote = function(quote){
     $scope.currentQuote = quote;
     let id = $scope.currentQuote.id;
@@ -254,12 +247,118 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
     }).catch(err=>console.log(err))
   }
 
-
   ////////////////
   // Edit routes
   ////////////////
+    //quotes
+    $scope.editQuote = function(quote){
+      $scope.editingQuote = quote;
+      self.showEditQuoteForm = true;
+      console.log(quote, ' this is quote');
+    }
+    $scope.submitEditQuote = function(){
+      console.log('calling edit function');
+      console.log($scope.editingQuote);
+      let id = $scope.editingQuote.id;
+      let index = self.quotes.indexOf($scope.editingQuote);
+      $http({
+        method: 'PUT',
+        url: self.url + '/quotes/' + id,
+        data: { quote: {
+          author: self.editedQuote.author,
+          content: self.editedQuote.content,
+          user_id: self.user.id }}
+      }).then(response=>{
+        console.log(response);
+        self.quotes.splice(index,1);
+        self.quotes.unshift(response.data);
+      }).catch(err=>console.log(err));
+    }
+    // photos
+    $scope.editPhoto = function(photo){
+      $scope.editingPhoto = photo;
+      self.showEditPhotoForm = true;
+      console.log(photo, ' this is photo');
+    }
+    $scope.submitEditPhoto = function(){
+      console.log('calling edit function');
+      console.log($scope.editingPhoto);
+      let id = $scope.editingPhoto.id;
+      let index = self.photos.indexOf($scope.editingPhoto);
+      $http({
+        method: 'PUT',
+        url: self.url + '/photos/' + id,
+        data: { photo: {
+          url: self.editedPhoto.url,
+          title: self.editedPhoto.title,
+          subject: self.editedPhoto.subject,
+          caption: self.editedPhoto.caption,
+          user_id: self.user.id }}
+      }).then(response=>{
+        console.log(response);
+        self.photos.splice(index,1);
+        self.photos.unshift(response.data);
+      }).catch(err=>console.log(err));
+    }
+    // gear
+    $scope.editGear = function(gear){
+      $scope.editingGear = gear;
+      self.showEditGearForm = true;
+      console.log(gear, ' this is gear');
+    }
+    $scope.submitEditGear = function(){
+      console.log('calling edit function');
+      console.log($scope.editingGear);
+      let id = $scope.editingGear.id;
+      let index = self.gear.indexOf($scope.editingGear);
+      $http({
+        method: 'PUT',
+        url: self.url + '/gears/' + id,
+        data: { gear: {
+          name: self.editedGear.name,
+          image_url: self.editedGear.image_url,
+          brand: self.editedGear.brand,
+          sport: self.editedGear.sport,
+          review: self.editedGear.review,
+          user_id: self.user.id }}
+      }).then(response=>{
+        console.log(response);
+        self.gear.splice(index,1);
+        self.gear.unshift(response.data);
+      }).catch(err=>console.log(err));
+    }
+    // profiles
+    $scope.editProfile = function(member){
+      $scope.editingProfile = member;
+      self.showEditProfileForm = true;
+      console.log(member, ' this is current member');
+    }
+    $scope.submitEditProfile = function(){
+      console.log('calling edit function');
+      console.log($scope.editingProfile);
+      let id = $scope.editingProfile.id;
+      let index = self.members.indexOf($scope.editingProfile);
+      $http({
+        method: 'PUT',
+        url: self.url + '/members/' + id,
+        data: { member: {
+          name: self.editedProfile.name,
+          location: self.editedProfile.location,
+          sports: self.editedProfile.sports,
+          goals: self.editedProfile.goals,
+          photo: self.editedProfile.photo,
+          user_id: self.user.id }}
+      }).then(response=>{
+        console.log(response);
+        self.members.splice(index,1);
+        self.members.unshift(response.data);
+      }).catch(err=>console.log(err));
+    }
 
-  // User Auth functions
+  ////////////////
+  // User Auth
+  ////////////////
+
   this.login = function(userPass){
     $http({
       method: 'POST',
