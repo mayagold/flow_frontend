@@ -254,13 +254,12 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
   ////////////////
   // Edit routes
   ////////////////
-
+    //quotes
     $scope.editQuote = function(quote){
       $scope.editingQuote = quote;
       self.showEditQuoteForm = true;
       console.log(quote, ' this is quote');
     }
-
     $scope.submitEditQuote = function(){
       console.log('calling edit function');
       console.log($scope.editingQuote);
@@ -279,6 +278,35 @@ app.controller('appController', ['$http', '$scope', '$filter', function($http, $
         self.quotes.unshift(response.data);
       }).catch(err=>console.log(err));
     }
+    // photos
+    $scope.editPhoto = function(photo){
+      $scope.editingPhoto = photo;
+      self.showEditPhotoForm = true;
+      console.log(photo, ' this is photo');
+    }
+    $scope.submitEditPhoto = function(){
+      console.log('calling edit function');
+      console.log($scope.editingPhoto);
+      let id = $scope.editingPhoto.id;
+      let index = self.photos.indexOf($scope.editingPhoto);
+      $http({
+        method: 'PUT',
+        url: self.url + '/photos/' + id,
+        data: { photo: {
+          url: self.editedPhoto.url,
+          title: self.editedPhoto.title,
+          subject: self.editedPhoto.subject,
+          caption: self.editedPhoto.caption,
+          user_id: self.user.id }}
+      }).then(response=>{
+        console.log(response);
+        self.photos.splice(index,1);
+        self.photos.unshift(response.data);
+      }).catch(err=>console.log(err));
+    }
+
+
+
 
 
   ////////////////

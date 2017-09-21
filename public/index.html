@@ -166,7 +166,6 @@
                 <a href="#" ng-click="editQuote(quote)">Edit</a>
               </div>
             </li>
-
             <!-- Edit Quote Form -->
             <div class="form-div" ng-show="app.showEditQuoteForm==true">
               <form class="postform" ng-submit="submitEditQuote()">
@@ -202,8 +201,6 @@
       </div>
       <div class="photos" ng-show=app.showPhotos==true>
         <h1><a id="photo-header" href="#" ng-click="showCreatePhotoForm=true">Post new photo</a></h1>
-
-
         <div class="gallery">
           <div class="image-container" ng-repeat="photo in app.photos">
               <img class="posted-photo" src="{{photo.url}}" alt=""  onclick="onClick(this)" ng-mouseover="hovering=true" ng-mouseleave="hovering=false">
@@ -215,6 +212,21 @@
                 <p>You posted this photo.</p>
                 <a href="#" ng-click="deletePhoto(photo);">Delete</a>
                 <a href="#" ng-click="editPhoto(photo);">Edit</a>
+              </div>
+
+              <!-- Edit photo form -->
+              <div class="form-div" ng-show="app.showEditPhotoForm==true">
+                <form class="postform" ng-submit="submitEditPhoto()">
+                  <input type="text" class="feedback-input" ng-model="app.editedPhoto.url" placeholder="url"/>
+                  <input type="text" class="feedback-input" ng-model="app.editedPhoto.title" placeholder="title"/>
+                  <input type="text" class="feedback-input" ng-model="app.editedPhoto.subject" placeholder="subject"/>
+                  <input type="text" class="feedback-input" ng-model="app.editedPhoto.caption" placeholder="caption"/>
+                  <div class="submit">
+                    <input class="submitbutton" type="submit" value="SEND"/>
+                    <div class="ease"></div>
+                  </div>
+                </form>
+                <a href="#" class="x" ng-click="app.showEditPhotoForm=false">X</a>
               </div>
           </div>
         </div>
