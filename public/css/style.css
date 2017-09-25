@@ -169,33 +169,39 @@ body {
     text-align: right;
     font-size: 20px;
     padding-right: 20px; }
+  body h2 {
+    text-align: center;
+    font-size: 3em;
+    color: #374341; }
   body .homepage-image {
     margin: 50px auto;
     position: relative;
     width: 500px;
     height: 400px;
     padding: 20px;
-    z-index: -10;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+    z-index: -10; }
     body .homepage-image div {
       position: absolute;
       top: 10px;
       left: 10px;
       right: 10px; }
+      body .homepage-image div img {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
   @media only screen and (max-width: 800px) {
     body .homepage-image {
       margin: 50px auto;
       position: relative;
       width: 240px;
       height: 240px;
-      padding: 10px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); }
+      padding: 10px; }
       body .homepage-image div {
         position: absolute;
         top: 10px;
         left: 10px;
         right: 10px;
-        bottom: 10px; } }
+        bottom: 10px; }
+        body .homepage-image div img {
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); } }
   body .climb {
     max-width: 50%;
     margin: 0 auto; }
@@ -245,6 +251,19 @@ body {
     body .homepage h1, body .register h1 {
       color: #EA0034;
       font-size: 2em; }
+  body .yours {
+    margin-top: -50px;
+    margin-left: 14px;
+    width: 300px;
+    background: none;
+    display: inline;
+    z-index: 3000;
+    cursor: pointer;
+    position: relative; }
+    body .yours a {
+      text-decoration: none;
+      color: #EA0034;
+      padding-left: 10px; }
   body .quotes {
     background: whitesmoke;
     color: #374341;
@@ -256,11 +275,6 @@ body {
         list-style: none; }
         body .quotes .quotesContainer ul li {
           display: block; }
-    body .quotes #post-quote-header {
-      text-decoration: none;
-      color: #374341; }
-    body .quotes #post-quote-header:hover {
-      color: #EA0034; }
     body .quotes blockquote {
       display: block;
       background: whitesmoke;
@@ -288,6 +302,15 @@ body {
       content: ""; }
     body .quotes blockquote small {
       font-weight: bold; }
+  body .photo-header {
+    font-size: 20px;
+    text-align: right;
+    margin-right: 20px;
+    color: #F09900;
+    text-decoration: none;
+    text-transform: uppercase; }
+  body .photo-header:hover {
+    color: #EA0034; }
   body .photos {
     z-index: 500;
     margin: 0 auto; }
@@ -301,14 +324,6 @@ body {
     body .photos h1 {
       text-align: right;
       margin-right: 20px; }
-    body .photos #photo-header {
-      font-size: 20px;
-      text-align: right;
-      margin-right: 20px;
-      color: #EA0034;
-      text-decoration: none; }
-    body .photos #photo-header:hover {
-      color: #F09900; }
     body .photos .gallery {
       margin: 0 auto 80px;
       padding: 20px auto 80px;
@@ -357,7 +372,6 @@ body {
         margin: 20px auto 80px; } }
     body .photos .posted-photo:hover {
       cursor: pointer;
-      z-index: 400;
       box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
     body .photos .photo-info {
       position: absolute;
@@ -383,18 +397,70 @@ body {
     margin: 0 auto; }
     .gearContainer ul li {
       padding: 10px;
-      color: #374341; }
+      color: #374341;
+      width: 90%;
+      height: 250px;
+      position: relative;
+      text-align: left;
+      display: block;
+      background: whitesmoke;
+      padding: 15px 40px 15px 40px;
+      margin: 0 20px 20px 20px;
+      line-height: 1.2;
+      color: #374341;
+      border-left: 15px solid #374341;
+      border-right: 2px solid #374341;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
       .gearContainer ul li img {
-        max-width: 100%;
-        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-        background-color: whitesmoke; }
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        background-color: whitesmoke;
+        position: absolute;
+        float: left;
+        margin-left: 20px;
+        top: 0;
+        top: 30px;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        background: whitesmoke; }
+      .gearContainer ul li .profile {
+        position: absolute;
+        float: left;
+        margin-left: 250px;
+        margin-top: 100px; }
+      .gearContainer ul li .title {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 30px; }
+      .gearContainer ul li strong {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #F09900;
+        margin-right: 5px; }
       .gearContainer ul li p {
-        text-transform: uppercase; }
+        text-transform: uppercase;
+        margin-right: 10px; }
       .gearContainer ul li #gear-name {
         font-weight: 500;
         font-size: 20px;
         color: #F09900; }
+      .gearContainer ul li #by {
+        padding: 0 5px; }
 
+@media only screen and (max-width: 800px) {
+  .gearContainer ul li {
+    height: 420px;
+    position: relative;
+    text-align: left;
+    padding: 0; }
+    .gearContainer ul li img {
+      left: 0; }
+    .gearContainer ul li .profile {
+      width: 300px;
+      position: absolute;
+      top: 250px;
+      left: 20px;
+      margin: 0; } }
 .form-container {
   overflow: hidden;
   position: relative;

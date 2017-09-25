@@ -229,6 +229,11 @@ body {
     font-size: 20px;
     padding-right: 20px;
   }
+  h2 {
+    text-align: center;
+    font-size: 3em;
+    color: $fh-coal;
+  }
   .homepage-image {
     margin: 50px auto;
     position: relative;
@@ -236,12 +241,15 @@ body {
     height: 400px;
     padding: 20px;
     z-index: -10;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    // box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     div {
       position: absolute;
       top: 10px;
       left: 10px;
       right: 10px;
+      img {
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+      }
     }
   }
   @media only screen and (max-width: $breakpoint) {
@@ -251,13 +259,16 @@ body {
       width: 240px;
       height: 240px;
       padding: 10px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      // box-shadow: 0 0 20px rgba(0,0,0,0.4);
       div {
         position: absolute;
         top: 10px;
         left: 10px;
         right: 10px;
         bottom: 10px;
+        img {
+                      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        }
       }
     }
 
@@ -326,7 +337,19 @@ body {
     }
   }
   .yours {
-  // needs work
+    margin-top: -50px;
+        margin-left: 14px;
+        width: 300px;
+        background: none;
+        display: inline;
+        z-index: 3000;
+        cursor: pointer;
+        position: relative;
+    a {
+      text-decoration: none;
+      color: $fh-pink;
+      padding-left: 10px;
+    }
   }
   .quotes {
     background: $fh-white;
@@ -343,13 +366,8 @@ body {
         }
       }
     }
-    #post-quote-header {
-      text-decoration: none;
-      color: $fh-coal;
-    }
-    #post-quote-header:hover{
-      color: $fh-pink;
-    }
+
+
     blockquote {
       display: block;
       background: $fh-white;
@@ -382,6 +400,17 @@ body {
       font-weight: bold;
     }
   }
+  .photo-header {
+    font-size: 20px;
+    text-align: right;
+    margin-right: 20px;
+    color: $fh-orange;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .photo-header:hover {
+    color: $fh-pink;
+  }
   .photos {
     z-index: 500;
     margin: 0 auto;
@@ -396,16 +425,7 @@ body {
       text-align: right;
       margin-right: 20px;
     }
-    #photo-header {
-      font-size: 20px;
-      text-align: right;
-      margin-right: 20px;
-      color: $fh-pink;
-      text-decoration: none;
-    }
-    #photo-header:hover {
-      color: $fh-orange;
-    }
+
     .gallery {
       margin: 0 auto 80px;
       padding: 20px auto 80px;
@@ -464,7 +484,7 @@ body {
       }
       .posted-photo:hover{
         cursor: pointer;
-        z-index: 400;
+
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
       }
       .photo-info {
@@ -496,22 +516,88 @@ body {
       li {
         padding: 10px;
         color: $fh-coal;
+        width: 90%;
+        height: 250px;
+        position: relative;
+        text-align: left;
+        display: block;
+        background: whitesmoke;
+        padding: 15px 40px 15px 40px;
+        margin: 0 20px 20px 20px;
+        line-height: 1.2;
+        color: #374341;
+        border-left: 15px solid $fh-coal;
+        border-right: 2px solid $fh-coal;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
         img {
-          max-width: 100%;
-          box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+          width: 200px;
+          height: 200px;
+          object-fit: cover;
           background-color:$fh-white;
+          position: absolute;
+          float: left;
+          margin-left: 20px;
+          top: 0;
+          top: 30px;
+          border: 1px solid rgba(0,0,0,.3);
+          background: whitesmoke;
+        }
+        .profile {
+          position: absolute;
+          float: left;
+          margin-left: 250px;
+          margin-top: 100px;
+        }
+        .title {
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size: 30px;
+        }
+        strong {
+          text-transform: uppercase;
+          font-weight: bold;
+          color: $fh-orange;
+          margin-right: 5px;
         }
         p {
           text-transform: uppercase;
+          margin-right: 10px;
         }
         #gear-name {
           font-weight: 500;
           font-size: 20px;
           color: $fh-orange;
         }
+        #by {
+          padding: 0 5px;
+        }
       }
     }
   }
+  @media only screen and (max-width: $breakpoint) {
+    .gearContainer {
+      ul {
+        li {
+          height: 420px;
+          position: relative;
+          text-align: left;
+          padding: 0;
+          img {
+            left: 0;
+          }
+          .profile {
+            width: 300px;
+            position: absolute;
+            top: 250px;
+            left: 20px;
+            margin: 0;
+          }
+
+          }
+      }
+    }
+  }
+
   .form-container {
     overflow: hidden;
     position: relative;

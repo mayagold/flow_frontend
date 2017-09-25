@@ -1,8 +1,7 @@
-# flow_frontend
 
 ##### GA WDI Gizmo Final Project
 
-# Flow [title]
+# NO EDITS
 ## Women in Action Sports
 
 ---
