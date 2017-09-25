@@ -175,27 +175,29 @@ body {
     width: 500px;
     height: 400px;
     padding: 20px;
-    z-index: -10;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+    z-index: -10; }
     body .homepage-image div {
       position: absolute;
       top: 10px;
       left: 10px;
       right: 10px; }
+      body .homepage-image div img {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
   @media only screen and (max-width: 800px) {
     body .homepage-image {
       margin: 50px auto;
       position: relative;
       width: 240px;
       height: 240px;
-      padding: 10px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); }
+      padding: 10px; }
       body .homepage-image div {
         position: absolute;
         top: 10px;
         left: 10px;
         right: 10px;
-        bottom: 10px; } }
+        bottom: 10px; }
+        body .homepage-image div img {
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); } }
   body .climb {
     max-width: 50%;
     margin: 0 auto; }
@@ -245,6 +247,19 @@ body {
     body .homepage h1, body .register h1 {
       color: #EA0034;
       font-size: 2em; }
+  body .yours {
+    margin-top: -50px;
+    margin-left: 14px;
+    width: 300px;
+    background: none;
+    display: inline;
+    z-index: 3000;
+    cursor: pointer;
+    position: relative; }
+    body .yours a {
+      text-decoration: none;
+      color: #EA0034;
+      padding-left: 10px; }
   body .quotes {
     background: whitesmoke;
     color: #374341;
@@ -256,9 +271,6 @@ body {
         list-style: none; }
         body .quotes .quotesContainer ul li {
           display: block; }
-    body .quotes #post-quote-header {
-      text-decoration: none;
-      color: #374341; }
     body .quotes #post-quote-header:hover {
       color: #EA0034; }
     body .quotes blockquote {
@@ -288,6 +300,14 @@ body {
       content: ""; }
     body .quotes blockquote small {
       font-weight: bold; }
+  body .photo-header {
+    font-size: 20px;
+    text-align: right;
+    margin-right: 20px;
+    color: #EA0034;
+    text-decoration: none; }
+  body .photo-header:hover {
+    color: #F09900; }
   body .photos {
     z-index: 500;
     margin: 0 auto; }
@@ -301,14 +321,6 @@ body {
     body .photos h1 {
       text-align: right;
       margin-right: 20px; }
-    body .photos #photo-header {
-      font-size: 20px;
-      text-align: right;
-      margin-right: 20px;
-      color: #EA0034;
-      text-decoration: none; }
-    body .photos #photo-header:hover {
-      color: #F09900; }
     body .photos .gallery {
       margin: 0 auto 80px;
       padding: 20px auto 80px;
@@ -357,7 +369,6 @@ body {
         margin: 20px auto 80px; } }
     body .photos .posted-photo:hover {
       cursor: pointer;
-      z-index: 400;
       box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
     body .photos .photo-info {
       position: absolute;
@@ -385,7 +396,7 @@ body {
       padding: 10px;
       color: #374341; }
       .gearContainer ul li img {
-        max-width: 100%;
+        max-width: 300px;
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
         background-color: whitesmoke; }
       .gearContainer ul li p {

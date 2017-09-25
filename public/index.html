@@ -129,7 +129,7 @@
       <!--  -->
       <div class="quotes" ng-show="app.showQuotes==true">
         <!-- Click to post new quote -->
-        <h1 ><a id="post-quote-header" href="#" ng-click="showCreateQuoteForm=true">Post new quote</a></h1>
+        <h1 ><a class="photo-header" href="#" ng-click="showCreateQuoteForm=true">Post new quote</a></h1>
         <!-- Post new quote: form -->
         <div class="form-div" ng-show="showCreateQuoteForm==true">
           <form class="postform" ng-submit="app.postQuote(newQuote)">
@@ -165,8 +165,7 @@
                 <small>{{quote.author}}</small>
               </blockquote>
               <div class="yours" ng-show="app.user.id==quote.user_id">
-                <a href="#" ng-click="deleteQuote(quote);">Delete</a>
-                <a href="#" ng-click="editQuote(quote)">Edit</a>
+                <a href="#" ng-click="deleteQuote(quote);">Delete</a><a href="#" ng-click="editQuote(quote)">Edit</a>
               </div>
             </li>
           </ul>
@@ -205,7 +204,7 @@
       </div>
       <!-- Photos container -->
       <div class="photos" ng-show=app.showPhotos==true>
-        <h1><a id="photo-header" href="#" ng-click="showCreatePhotoForm=true">Post new photo</a></h1>
+        <h1><a class="photo-header" href="#" ng-click="showCreatePhotoForm=true">Post new photo</a></h1>
         <div class="gallery">
           <div class="image-container" ng-repeat="photo in app.photos">
               <img class="posted-photo" src="{{photo.url}}" alt=""  onclick="onClick(this)" ng-mouseover="hovering=true" ng-mouseleave="hovering=false">
@@ -214,9 +213,7 @@
                 {{photo.caption}}<br/><small style="text-transform:uppercase">{{photo.subject}}</small>
               </div>
               <div class="yours" ng-show="app.user.id==photo.user_id">
-                <p>You posted this photo.</p>
-                <a href="#" ng-click="deletePhoto(photo);">Delete</a>
-                <a href="#" ng-click="editPhoto(photo);">Edit</a>
+                <a href="#" ng-click="deletePhoto(photo);">Delete</a><a href="#" ng-click="editPhoto(photo);">Edit</a>
               </div>
           </div>
         </div>
@@ -239,7 +236,7 @@
       <!--  -->
       <div class="gear" ng-show=app.showGear==true>
         <!-- click to post gear review -->
-        <h1><a href="#" class="post-quote-header" ng-click="showCreateGearForm=true">Post new gear review</a></h1>
+        <h1><a href="#" class="photo-header" ng-click="showCreateGearForm=true">Post new gear review</a></h1>
         <!-- create new gear review form -->
         <div id="gear-form-div" class="form-div" ng-show="showCreateGearForm==true">
           <form class="postform" ng-submit="app.postGearReview(newGear)">
@@ -280,9 +277,7 @@
               <p>"{{gear.review}}"</p>
               <small>SPORT: {{gear.sport}}</small>
               <div class="yours" ng-show="app.user.id==gear.user_id">
-                <p>You posted this gear review.</p>
-                <a href="#" ng-click="deleteGear(gear);">Delete</a>
-                <a href="#" ng-click="editGear(gear);">Edit</a>
+                <a href="#" ng-click="deleteGear(gear);">Delete</a><a href="#" ng-click="editGear(gear);">Edit</a>
               </div>
             </li>
           </ul>
@@ -293,7 +288,7 @@
       <!-- Profiles -->
       <!--  -->
       <div class="lineup" ng-show=app.showMembers==true>
-        <h1><a href="#" class="post-quote-header" ng-click="showCreateProfileForm=true">Create your NO EDITS profile</a></h1>
+        <h1><a href="#" class="photo-header" ng-click="showCreateProfileForm=true">Create your NO EDITS profile</a></h1>
         <!-- Post profile form -->
         <div class="form-div" ng-show="showCreateProfileForm==true">
           <form class="postform" ng-submit="app.postToLineup(newProfile)">
@@ -332,8 +327,7 @@
               {{member.name}}<br/>{{member.location}}<br/>
               {{member.sports}}<br/>{{member.goals}}
               <div class="yours" ng-show="app.user.id==member.user_id">
-                <a href="#" ng-click="deleteProfile(member);">Delete</a>
-                <a href="#" ng-click="editProfile(member);">Edit</a>
+                <a href="#" ng-click="deleteProfile(member);">Delete</a><a href="#" ng-click="editProfile(member);">Edit</a>
               </div>
             </li>
           </ul>
