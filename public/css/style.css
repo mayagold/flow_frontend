@@ -271,8 +271,6 @@ body {
         list-style: none; }
         body .quotes .quotesContainer ul li {
           display: block; }
-    body .quotes #post-quote-header:hover {
-      color: #EA0034; }
     body .quotes blockquote {
       display: block;
       background: whitesmoke;
@@ -304,10 +302,10 @@ body {
     font-size: 20px;
     text-align: right;
     margin-right: 20px;
-    color: #EA0034;
+    color: #F09900;
     text-decoration: none; }
   body .photo-header:hover {
-    color: #F09900; }
+    color: #EA0034; }
   body .photos {
     z-index: 500;
     margin: 0 auto; }
@@ -394,18 +392,69 @@ body {
     margin: 0 auto; }
     .gearContainer ul li {
       padding: 10px;
-      color: #374341; }
+      color: #374341;
+      width: 90%;
+      height: 250px;
+      position: relative;
+      text-align: left;
+      display: block;
+      background: whitesmoke;
+      padding: 15px 40px 15px 40px;
+      margin: 0 20px 20px 20px;
+      line-height: 1.2;
+      color: #374341;
+      border-left: 15px solid #374341;
+      border-right: 2px solid #374341;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
       .gearContainer ul li img {
-        max-width: 300px;
-        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-        background-color: whitesmoke; }
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        background-color: whitesmoke;
+        position: absolute;
+        float: left;
+        margin-left: 20px;
+        top: 0;
+        top: 30px;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        background: whitesmoke; }
+      .gearContainer ul li .profile {
+        position: absolute;
+        float: left;
+        margin-left: 250px;
+        margin-top: 100px; }
+      .gearContainer ul li .title {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 30px; }
+      .gearContainer ul li strong {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #F09900;
+        margin-right: 5px; }
       .gearContainer ul li p {
         text-transform: uppercase; }
       .gearContainer ul li #gear-name {
         font-weight: 500;
         font-size: 20px;
         color: #F09900; }
+      .gearContainer ul li #by {
+        padding: 0 5px; }
 
+@media only screen and (max-width: 800px) {
+  .gearContainer ul li {
+    height: 420px;
+    position: relative;
+    text-align: left;
+    padding: 0; }
+    .gearContainer ul li img {
+      left: 0; }
+    .gearContainer ul li .profile {
+      width: 300px;
+      position: absolute;
+      top: 250px;
+      left: 20px;
+      margin: 0; } }
 .form-container {
   overflow: hidden;
   position: relative;

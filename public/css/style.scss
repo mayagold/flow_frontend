@@ -362,9 +362,7 @@ body {
       }
     }
 
-    #post-quote-header:hover{
-      color: $fh-pink;
-    }
+
     blockquote {
       display: block;
       background: $fh-white;
@@ -401,11 +399,11 @@ body {
     font-size: 20px;
     text-align: right;
     margin-right: 20px;
-    color: $fh-pink;
+    color: $fh-orange;
     text-decoration: none;
   }
   .photo-header:hover {
-    color: $fh-orange;
+    color: $fh-pink;
   }
   .photos {
     z-index: 500;
@@ -512,10 +510,48 @@ body {
       li {
         padding: 10px;
         color: $fh-coal;
+        width: 90%;
+        height: 250px;
+        position: relative;
+        text-align: left;
+        display: block;
+        background: whitesmoke;
+        padding: 15px 40px 15px 40px;
+        margin: 0 20px 20px 20px;
+        line-height: 1.2;
+        color: #374341;
+        border-left: 15px solid $fh-coal;
+        border-right: 2px solid $fh-coal;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
         img {
-          max-width: 300px;
-          box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+          width: 200px;
+          height: 200px;
+          object-fit: cover;
           background-color:$fh-white;
+          position: absolute;
+          float: left;
+          margin-left: 20px;
+          top: 0;
+          top: 30px;
+          border: 1px solid rgba(0,0,0,.3);
+          background: whitesmoke;
+        }
+        .profile {
+          position: absolute;
+          float: left;
+          margin-left: 250px;
+          margin-top: 100px;
+        }
+        .title {
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size: 30px;
+        }
+        strong {
+          text-transform: uppercase;
+          font-weight: bold;
+          color: $fh-orange;
+          margin-right: 5px;
         }
         p {
           text-transform: uppercase;
@@ -525,9 +561,36 @@ body {
           font-size: 20px;
           color: $fh-orange;
         }
+        #by {
+          padding: 0 5px;
+        }
       }
     }
   }
+  @media only screen and (max-width: $breakpoint) {
+    .gearContainer {
+      ul {
+        li {
+          height: 420px;
+          position: relative;
+          text-align: left;
+          padding: 0;
+          img {
+            left: 0;
+          }
+          .profile {
+            width: 300px;
+            position: absolute;
+            top: 250px;
+            left: 20px;
+            margin: 0;
+          }
+
+          }
+      }
+    }
+  }
+
   .form-container {
     overflow: hidden;
     position: relative;

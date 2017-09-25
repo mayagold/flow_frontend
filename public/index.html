@@ -272,10 +272,13 @@
           <ul ng-repeat="gear in app.gear">
             <li>
               <img src="{{gear.image_url}}" alt=""/>
-              <p id="gear-name">{{gear.name}}</p>
-              <p>{{gear.brand}}</p>
-              <p>"{{gear.review}}"</p>
-              <small>SPORT: {{gear.sport}}</small>
+              <div class="profile">
+                <span class="title">{{gear.name}}</span>
+                <span id="by">by</span> <strong>{{gear.brand}}</strong>
+                <p>"{{gear.review}}"<br/>
+                <small>SPORT: {{gear.sport}}</small></p>
+              </div>
+
               <div class="yours" ng-show="app.user.id==gear.user_id">
                 <a href="#" ng-click="deleteGear(gear);">Delete</a><a href="#" ng-click="editGear(gear);">Edit</a>
               </div>
@@ -324,8 +327,12 @@
           <ul ng-repeat="member in app.members">
             <li>
               <img class="profile-pic" src="{{member.photo}}" alt="">
-              {{member.name}}<br/>{{member.location}}<br/>
-              {{member.sports}}<br/>{{member.goals}}
+              <div class="profile">
+                <span class="title">{{member.name}}</span><br/>
+                <strong>BASED IN: </strong>{{member.location}}<br/>
+                <strong>WHAT I DO: </strong>{{member.sports}}<br/>
+                <strong>GOALS: </strong>{{member.goals}}
+              </div>
               <div class="yours" ng-show="app.user.id==member.user_id">
                 <a href="#" ng-click="deleteProfile(member);">Delete</a><a href="#" ng-click="editProfile(member);">Edit</a>
               </div>
