@@ -173,8 +173,41 @@ body {
     text-align: center;
     font-size: 3em;
     color: #374341; }
+  body .aboutmodal {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: #374341;
+    color: whitesmoke;
+    text-align: center;
+    z-index: 2000;
+    margin-top: -80px;
+    font-size: 20px; }
+    body .aboutmodal h2 {
+      color: #F09900;
+      padding-top: 50px; }
+    body .aboutmodal .aboutcontent {
+      width: 60%;
+      margin: 0 auto; }
+      body .aboutmodal .aboutcontent a {
+        color: #3498db;
+        text-decoration: none; }
+      body .aboutmodal .aboutcontent a:hover {
+        color: #EA0034; }
+      body .aboutmodal .aboutcontent small {
+        text-transform: uppercase;
+        margin-top: 40px; }
+    body .aboutmodal .x {
+      position: absolute;
+      float: right;
+      top: 20px;
+      right: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 30px;
+      color: #F09900; }
   body .homepage-image {
-    margin: 50px auto;
+    margin: 50px auto 0;
     position: relative;
     width: 500px;
     height: 400px;
@@ -279,7 +312,7 @@ body {
       display: block;
       background: whitesmoke;
       padding: 15px 40px 15px 40px;
-      margin: 0 20px 20px 20px;
+      margin: 0 60px 20px 20px;
       position: relative;
       line-height: 1.2;
       color: #374341;
@@ -405,12 +438,12 @@ body {
       display: block;
       background: whitesmoke;
       padding: 15px 40px 15px 40px;
-      margin: 0 20px 20px 20px;
+      margin: 0 20px 20px 60px;
       line-height: 1.2;
       color: #374341;
       border-left: 15px solid #374341;
       border-right: 2px solid #374341;
-      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+      box-shadow: 2px 2px 15px #ccc; }
       .gearContainer ul li img {
         width: 200px;
         height: 200px;
@@ -452,7 +485,8 @@ body {
     height: 420px;
     position: relative;
     text-align: left;
-    padding: 0; }
+    padding: 0;
+    margin-left: 10px; }
     .gearContainer ul li img {
       left: 0; }
     .gearContainer ul li .profile {
