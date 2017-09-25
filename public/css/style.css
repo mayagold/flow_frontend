@@ -173,8 +173,41 @@ body {
     text-align: center;
     font-size: 3em;
     color: #374341; }
+  body .aboutmodal {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: #374341;
+    color: whitesmoke;
+    text-align: center;
+    z-index: 2000;
+    margin-top: -80px;
+    font-size: 20px; }
+    body .aboutmodal h2 {
+      color: #F09900;
+      padding-top: 50px; }
+    body .aboutmodal .aboutcontent {
+      width: 60%;
+      margin: 0 auto; }
+      body .aboutmodal .aboutcontent a {
+        color: #3498db;
+        text-decoration: none; }
+      body .aboutmodal .aboutcontent a:hover {
+        color: #EA0034; }
+      body .aboutmodal .aboutcontent small {
+        text-transform: uppercase;
+        margin-top: 40px; }
+    body .aboutmodal .x {
+      position: absolute;
+      float: right;
+      top: 20px;
+      right: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 30px;
+      color: #F09900; }
   body .homepage-image {
-    margin: 50px auto;
+    margin: 50px auto 0;
     position: relative;
     width: 500px;
     height: 400px;

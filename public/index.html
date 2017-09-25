@@ -48,6 +48,7 @@
                 <li><a href="#" ng-click="app.togglePhotos()">GALLERY</a></li>
                 <li><a href="#" ng-click="app.toggleLineup()">LINEUP</a></li>
                 <li><a href="#">FORUM</a></li>
+                <li><a href="#" ng-click="showabout=true">ABOUT</a></li>
               </ul>
             </li>
             <!-- members -->
@@ -61,6 +62,17 @@
         </nav>
       </div>
     </section>
+
+    <div class="aboutmodal" ng-show="showabout==true">
+      <h2>NO EDITS</h2>
+      <div class="aboutcontent">
+        <p>NO EDITS is an inspirational app for women in action sports. It promotes outdoors exploration, adventure, athletic achievement, and female icons who push boundaries.</p>
+        <p>CREATED BY MAYA GOLDSTEIN as a sprint project for General Assembly.</p>
+        <p> <a href="https://www.linkedin.com/in/maya-gold/">LINKEDIN</a> | <a href="https://github.com/mayagold">GITHUB</a> | <a href="https://mayagold.github.io/Portfolio/">PORTFOLIO</a> </p>
+        <small> Copyright 2017 All Rights Reserved</small>
+      </div>
+      <a href="#" class="x" ng-click="showabout=false">X</a>
+    </div>
     <!--  -->
     <!-- Main content -->
     <!--  -->
