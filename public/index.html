@@ -130,6 +130,7 @@
       <div class="quotes" ng-show="app.showQuotes==true">
         <!-- Click to post new quote -->
         <h1 ><a class="photo-header" href="#" ng-click="showCreateQuoteForm=true">Post new quote</a></h1>
+        <h2>INSPIRATION</h2>
         <!-- Post new quote: form -->
         <div class="form-div" ng-show="showCreateQuoteForm==true">
           <form class="postform" ng-submit="app.postQuote(newQuote)">
@@ -205,6 +206,7 @@
       <!-- Photos container -->
       <div class="photos" ng-show=app.showPhotos==true>
         <h1><a class="photo-header" href="#" ng-click="showCreatePhotoForm=true">Post new photo</a></h1>
+        <h2>PHOTO GALLERY</h2>
         <div class="gallery">
           <div class="image-container" ng-repeat="photo in app.photos">
               <img class="posted-photo" src="{{photo.url}}" alt=""  onclick="onClick(this)" ng-mouseover="hovering=true" ng-mouseleave="hovering=false">
@@ -269,14 +271,15 @@
         </div>
         <!-- container on pg for gear model-->
         <div class="gearContainer">
+          <h2>GEAR REVIEWS</h2>
           <ul ng-repeat="gear in app.gear">
             <li>
               <img src="{{gear.image_url}}" alt=""/>
               <div class="profile">
                 <span class="title">{{gear.name}}</span>
                 <span id="by">by</span> <strong>{{gear.brand}}</strong>
-                <p>"{{gear.review}}"<br/>
-                <small>SPORT: {{gear.sport}}</small></p>
+                <p><strong>REVIEW: </strong>"{{gear.review}}"<br/>
+                <small><strong>SPORT: </strong> {{gear.sport}}</small></p>
               </div>
 
               <div class="yours" ng-show="app.user.id==gear.user_id">
@@ -292,6 +295,7 @@
       <!--  -->
       <div class="lineup" ng-show=app.showMembers==true>
         <h1><a href="#" class="photo-header" ng-click="showCreateProfileForm=true">Create your NO EDITS profile</a></h1>
+        <h2>LINEUP</h2>
         <!-- Post profile form -->
         <div class="form-div" ng-show="showCreateProfileForm==true">
           <form class="postform" ng-submit="app.postToLineup(newProfile)">

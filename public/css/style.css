@@ -169,6 +169,10 @@ body {
     text-align: right;
     font-size: 20px;
     padding-right: 20px; }
+  body h2 {
+    text-align: center;
+    font-size: 3em;
+    color: #374341; }
   body .homepage-image {
     margin: 50px auto;
     position: relative;
@@ -303,7 +307,8 @@ body {
     text-align: right;
     margin-right: 20px;
     color: #F09900;
-    text-decoration: none; }
+    text-decoration: none;
+    text-transform: uppercase; }
   body .photo-header:hover {
     color: #EA0034; }
   body .photos {
@@ -433,7 +438,8 @@ body {
         color: #F09900;
         margin-right: 5px; }
       .gearContainer ul li p {
-        text-transform: uppercase; }
+        text-transform: uppercase;
+        margin-right: 10px; }
       .gearContainer ul li #gear-name {
         font-weight: 500;
         font-size: 20px;

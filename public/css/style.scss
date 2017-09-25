@@ -229,6 +229,11 @@ body {
     font-size: 20px;
     padding-right: 20px;
   }
+  h2 {
+    text-align: center;
+    font-size: 3em;
+    color: $fh-coal;
+  }
   .homepage-image {
     margin: 50px auto;
     position: relative;
@@ -401,6 +406,7 @@ body {
     margin-right: 20px;
     color: $fh-orange;
     text-decoration: none;
+    text-transform: uppercase;
   }
   .photo-header:hover {
     color: $fh-pink;
@@ -555,6 +561,7 @@ body {
         }
         p {
           text-transform: uppercase;
+          margin-right: 10px;
         }
         #gear-name {
           font-weight: 500;
